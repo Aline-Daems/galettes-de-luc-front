@@ -14,6 +14,6 @@ export class UserService {
 
 
   create(userForm: userForm){
-    return this._httpClient.post(this._url+'/user/create', userForm)
+    return this._httpClient.post(this._url+'user/create', userForm)
   }
 }
