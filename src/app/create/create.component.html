@@ -1,0 +1,16 @@
+<section>
+  <h2>Créer un nouvel utilisateur:</h2>
+  <form [formGroup]="userForm" (ngSubmit)="create()">
+    <label>Nom</label>
+    <input type="text" formControlName="firstname">
+    <label>Prénom</label>
+    <input type="text" formControlName="lastname">
+    <label>Mot de passe</label>
+    <input type="password" formControlName="password">
+    <label>Email</label>
+    <input type="text" formControlName="email">
+    <input type="submit" value="Créer">
+  </form>
+
+</section>
+

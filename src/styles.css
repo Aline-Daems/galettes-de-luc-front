@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin:0;
+  padding:0;
+}
+
+form{
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
+input{
+  padding:0.5rem;
+  width:20rem;
+  margin-bottom:2rem;
+
+}
+
+label{
+
+  align-self:flex-start;
+  margin-left:1.1rem;
+  margin-bottom: 0.5rem;
+  font-family: "Agency FB";
+
+
+}
+input[type="submit"]{
+  background: #235b3d;
+  color:#fefefe;
+  border:0px solid black;
+  border-radius: 0.2rem;
+  width:20.9rem;
+  font-family: "Agency FB";
+  font-weight: bold;
+}
+
+
+input[type="submit"]:active{
+  background: #fefefe;
+  color:#235b3d;
+  border: 1px solid #235b3d;
+
+}
+
+
+h2{
+  color: #424242;
+  margin:auto;
+  margin-bottom:2rem;
+  font-family: "Agency FB";
+
+}
+
