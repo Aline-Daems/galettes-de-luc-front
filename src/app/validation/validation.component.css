@@ -1,8 +1,17 @@
+section{
+  display:flex;
+  align-items: center;
+  height:25rem;
+  justify-content: center;
+  margin:auto;
+}
+
 div{
   display:flex;
   justify-content: space-around;
   border: 1px solid grey;
   padding: 2rem;
+
 
 }
 span{
