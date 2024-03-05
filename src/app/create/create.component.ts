@@ -26,7 +26,7 @@ export class CreateComponent {
 
   create(){
 
-    this._userService.create(this.userForm.value).subscribe(()=> this._router.navigate(['/home']));
+    this._userService.create(this.userForm.value).subscribe(()=> this._router.navigate(['/validation']));
   }
 
 

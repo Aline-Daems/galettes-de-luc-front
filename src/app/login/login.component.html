@@ -1,0 +1,12 @@
+<section>
+  <h2>Connectez-vous:</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <label>Email</label>
+    <input type="text" formControlName="email" placeholder=" ex: John@Doe.be">
+    <label>Mot de passe</label>
+    <input type="password" formControlName="password">
+    <input type="submit" value="Se connecter">
+  </form>
+
+</section>

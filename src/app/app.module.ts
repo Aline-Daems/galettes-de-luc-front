@@ -13,6 +13,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 import {NavbarComponent} from "./navbar/navbar.component";
 import {NgOptimizedImage} from "@angular/common";
+import { LoginComponent } from './login/login.component';
+import { ValidationComponent } from './validation/validation.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import {NgOptimizedImage} from "@angular/common";
     HeaderComponent,
     HomeComponent,
     NavbarComponent,
+    LoginComponent,
+    ValidationComponent,
 
   ],
   imports: [

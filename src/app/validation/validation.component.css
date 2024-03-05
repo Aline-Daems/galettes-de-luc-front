@@ -1,0 +1,12 @@
+div{
+  display:flex;
+  justify-content: space-around;
+  border: 1px solid grey;
+  padding: 2rem;
+
+}
+span{
+  font-size: 2rem;
+  color: var(--primaryGreen);
+  margin-right:1rem;
+}
