@@ -4,6 +4,9 @@ import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
 import {faTruck} from "@fortawesome/free-solid-svg-icons/faTruck";
 import {faReceipt} from "@fortawesome/free-solid-svg-icons/faReceipt";
 import {faRectangleList} from "@fortawesome/free-solid-svg-icons/faRectangleList";
+import {faUserPlus} from "@fortawesome/free-solid-svg-icons/faUserPlus";
+import {faTruckRampBox} from "@fortawesome/free-solid-svg-icons/faTruckRampBox";
+import {faTruckFront} from "@fortawesome/free-solid-svg-icons/faTruckFront";
 
 @Component({
   selector: 'app-navbar',
@@ -12,9 +15,13 @@ import {faRectangleList} from "@fortawesome/free-solid-svg-icons/faRectangleList
 })
 export class NavbarComponent {
 
+
+
   protected readonly faHouse = faHouse;
   protected readonly faUser = faUser;
-  protected readonly faTruck = faTruck;
-  protected readonly faReceipt = faReceipt;
   protected readonly faRectangleList = faRectangleList;
+
+  protected readonly faUserPlus = faUserPlus;
+  protected readonly faTruckRampBox = faTruckRampBox;
+
 }

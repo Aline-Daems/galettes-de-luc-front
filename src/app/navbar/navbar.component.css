@@ -21,3 +21,34 @@ a{
   margin-left: 1rem;
 
 }
+
+p{
+  display:none;
+}
+
+
+@media only screen and (min-width: 768px){
+
+  nav{
+    top:0;
+    bottom:initial;
+    margin-bottom: 2rem;
+    position:initial;
+  }
+  p{
+    display:block;
+    font-size:1rem;
+    margin-left:0.5rem;
+
+  }
+  a{
+    text-align: center;
+    display:flex;
+    align-items: center;
+    transition: color ease-in 0.3s;
+  }
+
+  a:hover{
+    color: #d2d2d2;
+  }
+}

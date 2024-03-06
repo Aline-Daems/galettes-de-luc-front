@@ -1,4 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {faTruck} from "@fortawesome/free-solid-svg-icons/faTruck";
+import {faUserPlus} from "@fortawesome/free-solid-svg-icons/faUserPlus";
+import {faRectangleList} from "@fortawesome/free-solid-svg-icons/faRectangleList";
+import {faUser} from "@fortawesome/free-solid-svg-icons/faUser";
+import {Router} from "@angular/router";
+import {faTruckRampBox} from "@fortawesome/free-solid-svg-icons/faTruckRampBox";
+import {faTruckFront} from "@fortawesome/free-solid-svg-icons/faTruckFront";
+import {faEgg} from "@fortawesome/free-solid-svg-icons/faEgg";
 
 
   @Component({
@@ -23,4 +31,33 @@ export class HomeComponent implements OnInit{
         }
       }
 
-}
+    protected readonly faTruck = faTruck;
+    protected readonly faUserPlus = faUserPlus;
+    protected readonly faRectangleList = faRectangleList;
+    protected readonly faUser = faUser;
+
+    constructor(private _router:Router) {
+
+    }
+
+    receipt(){
+
+    this._router.navigate(['/receipt'])
+    }
+
+    createUser(){
+      this._router.navigate(['/create'])
+    }
+
+    forms(){
+      this._router.navigate(['/forms'])
+    }
+
+    profile(){
+      this._router.navigate(['/profile'])
+    }
+
+    protected readonly faTruckRampBox = faTruckRampBox;
+    protected readonly faTruckFront = faTruckFront;
+    protected readonly faEgg = faEgg;
+  }

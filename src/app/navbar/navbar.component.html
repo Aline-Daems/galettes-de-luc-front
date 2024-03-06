@@ -1,21 +1,28 @@
 <nav>
   <a routerLink="/home">
     <fa-icon [icon]="faHouse"></fa-icon>
-  </a>
-
-
-  <a routerLink="/create">
-    <fa-icon [icon]="faUser"></fa-icon>
+    <p>Accueil</p>
   </a>
 
   <a href="">
-    <fa-icon [icon]="faTruck"></fa-icon>
+    <fa-icon [icon]="faTruckRampBox"></fa-icon>
+    <p>Nouvelle réception</p>
+  </a>
+
+  <a routerLink="/create">
+    <fa-icon [icon]="faUserPlus"></fa-icon>
+    <p>Nouveau réceptionniste</p>
   </a>
 
   <a href="">
     <fa-icon [icon]="faRectangleList"></fa-icon>
+    <p>Précédentes réceptions</p>
   </a>
 
+  <a href="">
+    <fa-icon [icon]="faUser"></fa-icon>
+    <p>Profil</p>
+  </a>
 
 
 </nav>

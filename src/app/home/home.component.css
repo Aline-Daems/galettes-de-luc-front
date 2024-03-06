@@ -1,0 +1,49 @@
+section{
+  margin-bottom: 2rem;
+
+}
+
+h2{
+  text-align: center;
+}
+button{
+  background: var(--primaryGreen);
+  color:#fefefe;
+  padding: 1.5rem;
+  border:none;
+  margin-bottom: 2rem;
+  max-width: 12rem;
+  display:flex;
+  align-items: center;
+}
+
+
+button:active{
+  background: #fefefe;
+  color:var(--primaryGreen);
+  border:1px solid var(--primaryGreen);
+}
+fa-icon{
+  font-size:1rem;
+  margin-right:1rem;
+}
+@media only screen and (min-width: 768px){
+
+  button{
+    transition: background ease-in 0.2s;
+    margin-right: 2rem;
+
+  }
+  button:hover{
+    background: #fefefe;
+    color:var(--primaryGreen);
+    border:1px solid var(--primaryGreen);
+  }
+  div{
+    display:flex;
+    flex-wrap: wrap;
+    width: 30rem;
+    justify-content: center;
+  }
+
+}

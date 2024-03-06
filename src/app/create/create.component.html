@@ -1,9 +1,10 @@
 <section>
-  <h2>Créer un nouveau réceptionniste:</h2>
+
   <form [formGroup]="userForm" (ngSubmit)="create()">
-    <label>Nom</label>
-    <input type="text" formControlName="firstname" placeholder=" ex: John">
+    <h2>Créer un nouveau réceptionniste:</h2>
     <label>Prénom</label>
+    <input type="text" formControlName="firstname" placeholder=" ex: John">
+    <label>Nom</label>
     <input type="text" formControlName="lastname" placeholder=" ex: Doe">
     <label>Mot de passe</label>
     <input type="password" formControlName="password">
