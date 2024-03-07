@@ -32,4 +32,13 @@ export class UserService {
       this.userConnected.next(data.email)
     }))
   }
+
+
+  updateUserStatus(status:string |null){
+
+    this.userConnected.next(status);
+  }
+
+
+
 }

@@ -2,14 +2,41 @@
 
   <form [formGroup]="userForm" (ngSubmit)="create()">
     <h2>Créer un nouveau réceptionniste:</h2>
-    <label>Prénom</label>
-    <input type="text" formControlName="firstname" placeholder=" ex: John">
-    <label>Nom</label>
-    <input type="text" formControlName="lastname" placeholder=" ex: Doe">
-    <label>Mot de passe</label>
-    <input type="password" formControlName="password">
-    <label>Email</label>
-    <input type="text" formControlName="email" placeholder=" ex: John@Doe.be">
+
+    <div>
+      <label>Prénom</label>
+      <input type="text" formControlName="firstname" placeholder=" ex: John">
+
+      <span *ngIf="firstname?.invalid && ( firstname?.touched || firstname?.dirty)">
+                        {{errorFirstname}}
+      </span>
+
+
+    </div>
+    <div>
+
+      <label>Nom</label>
+      <input type="text" formControlName="lastname" placeholder=" ex: Doe">
+      <span *ngIf="lastname?.invalid && ( lastname?.touched || lastname?.dirty)">
+              {{errorLastname}}</span>
+
+    </div>
+    <div>
+
+      <label>Mot de passe</label>
+      <input type="password" formControlName="password">
+      <span *ngIf="password?.invalid && (password?.touched || password?.dirty)">
+                {{errorPassword}}</span>
+    </div>
+
+    <div>
+      <label>Email</label>
+      <input type="text" formControlName="email" placeholder=" ex: John@Doe.be">
+      <span *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+                {{errorMail}}</span>
+    </div>
+
+
     <input type="submit" value="Créer">
   </form>
 
