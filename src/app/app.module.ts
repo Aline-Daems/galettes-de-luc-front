@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { CreateComponent } from './create/create.component';
 import {url} from "./url";
 import {ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
@@ -15,6 +15,10 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {NgOptimizedImage} from "@angular/common";
 import { LoginComponent } from './login/login.component';
 import { ValidationComponent } from './validation/validation.component';
+import {interceptor} from "./interceptor/interceptor.interceptor";
+import { ReceiptComponent } from './receipt/receipt.component';
+import { ProviderComponent } from './provider/provider.component';
+import { NewProviderComponent } from './new-provider/new-provider.component';
 
 
 @NgModule({
@@ -26,6 +30,9 @@ import { ValidationComponent } from './validation/validation.component';
     NavbarComponent,
     LoginComponent,
     ValidationComponent,
+    ReceiptComponent,
+    ProviderComponent,
+    NewProviderComponent
 
   ],
   imports: [
@@ -37,7 +44,8 @@ import { ValidationComponent } from './validation/validation.component';
     NgOptimizedImage
   ],
   providers: [
-    {provide: url, useValue:"http://localhost:8080/"}
+    {provide: url, useValue:"http://localhost:8080/"},
+    {provide: HTTP_INTERCEPTORS, useClass: interceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,30 @@
+<div>
+ <h2>Fournisseurs</h2>
+
+  <a routerLink="/providers/new"><fa-icon [icon]="faPlus" class="plus"></fa-icon></a>
+  <table>
+
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Note</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of array">
+      <td class="name">
+
+        <span>
+
+
+        <button (click)="delete(a.id)"><fa-icon [icon]="faXmark"></fa-icon></button>
+        <button><fa-icon [icon]="faPen"></fa-icon></button>
+         </span>
+        <p>{{ a.name }}</p>
+      </td>
+      <td>{{ a.description }}</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

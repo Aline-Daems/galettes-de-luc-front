@@ -1,0 +1,19 @@
+<section>
+
+  <form [formGroup]="providerForm" (ngSubmit)="create()">
+    <h2>Ajouter un nouveau fournisseur:</h2>
+
+    <div>
+      <label>Fournisseur:</label>
+      <input type="text" formControlName="name" placeholder=" ex: Denis">
+
+    </div>
+    <div>
+      <label>Note:(facultatif)</label>
+      <input type="text" formControlName="description" placeholder=" ex: verifier le numéro d'article">
+    </div>
+
+    <input type="submit" value="Créer">
+  </form>
+
+</section>
