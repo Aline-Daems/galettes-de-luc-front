@@ -3,12 +3,15 @@
   <h2>Bienvenue {{firstname}}</h2>
   <div>
     <button> <fa-icon [icon]="faTruckRampBox"></fa-icon> Entrer une nouvelle réception</button>
+    <button> <fa-icon [icon]="faRectangleList"></fa-icon> Accéder aux réceptions</button>
     <button (click)="createUser()"> <fa-icon [icon]="faUserPlus"></fa-icon> Entrer un nouveau réceptionniste</button>
     <button (click)="newProvider()"> <fa-icon [icon]="faTruckFront"></fa-icon> Entrer un nouveau fournisseur</button>
-    <button (click)="providers()"> <fa-icon [icon]="faClipboardList"></fa-icon> Voir mes fournisseurs</button>
-    <button (click)="providers()"> <fa-icon [icon]="faClipboardList"></fa-icon> Voir mes matières premières</button>
     <button (click)="createUser()"> <fa-icon [icon]="faEgg"></fa-icon> Entrer une nouvelle matière première</button>
-    <button> <fa-icon [icon]="faRectangleList"></fa-icon> Accéder aux formulaires</button>
+
+    <button (click)="providers()"> <fa-icon [icon]="faClipboardList"></fa-icon> Tous les fournisseurs</button>
+    <button (click)="providers()"> <fa-icon [icon]="faClipboardList"></fa-icon> Toutes les matières premières</button>
+
+
     <button> <fa-icon [icon]="faUser"></fa-icon> Modifier mes informations</button>
    </div>
 </section>
