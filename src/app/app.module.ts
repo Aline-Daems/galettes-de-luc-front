@@ -15,10 +15,10 @@ import {NavbarComponent} from "./navbar/navbar.component";
 import {NgOptimizedImage} from "@angular/common";
 import { LoginComponent } from './login/login.component';
 import { ValidationComponent } from './validation/validation.component';
-import {interceptor} from "./interceptor/interceptor.interceptor";
 import { ReceiptComponent } from './receipt/receipt.component';
 import { ProviderComponent } from './provider/provider.component';
 import { NewProviderComponent } from './new-provider/new-provider.component';
+import {authInterceptor} from "./interceptor/auth.interceptor";
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { NewProviderComponent } from './new-provider/new-provider.component';
   ],
   providers: [
     {provide: url, useValue:"http://localhost:8080/"},
-    {provide: HTTP_INTERCEPTORS, useClass: interceptor, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: authInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

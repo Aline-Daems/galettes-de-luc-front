@@ -3,7 +3,7 @@ export interface receiptForm {
       dateReceipt:Date;
       quantity:number;
       providerNumber:string;
-      expiration:Date;
+      expirationDate:Date;
       temperature: number;
       frozen:boolean;
       frozenComment:string;

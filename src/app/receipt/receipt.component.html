@@ -1,6 +1,6 @@
 <section>
 
-  <form [formGroup]="receiptForm" >
+  <form [formGroup]="receiptForm" (ngSubmit)="create()" >
     <h2>Entrer une nouvelle réception:</h2>
 
     <div class="form">
@@ -12,38 +12,42 @@
       <input type="email" formControlName="email">
     </div>
     <div class="form">
+      <label>Numéro fournisseur</label>
+      <input type="text" formControlName="providerNumber">
+    </div>
+    <div class="form">
       <label>Quantité</label>
       <input type="number" formControlName="quantity">
     </div>
 
     <div class="form">
       <label>Date d'expiration</label>
-      <input type="date" formControlName="expiration">
+      <input type="date" formControlName="expirationDate">
     </div>
     <div class="form">
       <label>Température</label>
-      <input type="number" formControlName="expiration">
+      <input type="number" formControlName="temperature">
     </div>
     <div class="form-box">
       <label>Produit surgelé ? </label>
-      <input type="checkbox" class="frozen">
+      <input type="checkbox" class="frozen" formControlName="frozen">
     </div>
     <div class="form-box">
       <label>Etiquetage non conforme ?  </label>
-      <input type="checkbox">
+      <input type="checkbox" formControlName="labelling">
     </div>
     <div class="form-box">
       <label>Emballage non conforme ?  </label>
-      <input type="checkbox">
+      <input type="checkbox" formControlName="packaging">
     </div>
     <div class="form-box">
       <label>Hygiène  non conforme ?  </label>
-      <input type="checkbox" class="hygiene">
+      <input type="checkbox" class="hygiene" formControlName="hygiene">
     </div>
 
     <div class="form">
       <label>Commentaire</label>
-      <textarea>
+      <textarea formControlName="comment">
 
       </textarea>
     </div>
