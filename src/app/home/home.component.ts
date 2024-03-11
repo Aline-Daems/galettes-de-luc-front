@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {faTruckRampBox} from "@fortawesome/free-solid-svg-icons/faTruckRampBox";
 import {faTruckFront} from "@fortawesome/free-solid-svg-icons/faTruckFront";
 import {faEgg} from "@fortawesome/free-solid-svg-icons/faEgg";
+import {faClipboardList} from "@fortawesome/free-solid-svg-icons/faClipboardList";
 
 
   @Component({
@@ -57,7 +58,17 @@ export class HomeComponent implements OnInit{
       this._router.navigate(['/profile'])
     }
 
+    newProvider(){
+
+      this._router.navigate(['/providers/new'])
+    }
+    providers(){
+
+      this._router.navigate(['/providers'])
+    }
+
     protected readonly faTruckRampBox = faTruckRampBox;
     protected readonly faTruckFront = faTruckFront;
     protected readonly faEgg = faEgg;
+    protected readonly faClipboardList = faClipboardList;
   }

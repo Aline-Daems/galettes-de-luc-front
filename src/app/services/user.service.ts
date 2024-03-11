@@ -14,7 +14,7 @@ class userForm {
 export class UserService {
   userConnected = new BehaviorSubject<string| null>(null)
 
-  constructor(private readonly _httpClient:HttpClient, @Inject(url) private _url:String) { }
+  constructor(private readonly _httpClient:HttpClient, @Inject(url) private _url:string) { }
 
   create(userForm: userForm){
     return this._httpClient.post(this._url+'user/create', userForm)
