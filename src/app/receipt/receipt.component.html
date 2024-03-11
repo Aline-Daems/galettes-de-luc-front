@@ -1,0 +1,63 @@
+<section>
+
+  <form [formGroup]="receiptForm" >
+    <h2>Entrer une nouvelle réception:</h2>
+
+    <div class="form">
+      <label>Date de réception</label>
+      <input type="date" formControlName="dateReceipt">
+    </div>
+    <div class="form">
+      <label>Email du réceptionniste</label>
+      <input type="email" formControlName="email">
+    </div>
+    <div class="form">
+      <label>Quantité</label>
+      <input type="number" formControlName="quantity">
+    </div>
+
+    <div class="form">
+      <label>Date d'expiration</label>
+      <input type="date" formControlName="expiration">
+    </div>
+    <div class="form">
+      <label>Température</label>
+      <input type="number" formControlName="expiration">
+    </div>
+    <div class="form-box">
+      <label>Produit surgelé ? </label>
+      <input type="checkbox" class="frozen">
+    </div>
+    <div class="form-box">
+      <label>Etiquetage non conforme ?  </label>
+      <input type="checkbox">
+    </div>
+    <div class="form-box">
+      <label>Emballage non conforme ?  </label>
+      <input type="checkbox">
+    </div>
+    <div class="form-box">
+      <label>Hygiène  non conforme ?  </label>
+      <input type="checkbox" class="hygiene">
+    </div>
+
+    <div class="form">
+      <label>Commentaire</label>
+      <textarea>
+
+      </textarea>
+    </div>
+<!--    <div>-->
+<!--      <label> Role</label>-->
+<!--      <select formControlName="role">-->
+
+<!--      </select>-->
+<!--    </div>-->
+
+
+
+    <input type="submit" value="Créer">
+  </form>
+
+</section>
+
