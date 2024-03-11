@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit{
 
     receipt(){
 
-    this._router.navigate(['/receipt'])
+    this._router.navigate(['receipts/new'])
     }
 
     createUser(){
