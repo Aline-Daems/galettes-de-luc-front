@@ -26,7 +26,7 @@ export class CreateComponent {
             lastname: this._formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             password: this._formBuilder.control('', [Validators.required, PasswordValidator()]),
             email: this._formBuilder.control('', [Validators.required, Validators.email]),
-            role: this._formBuilder.control('', Validators.required),
+            role: this._formBuilder.control(''),
         })
     }
 
@@ -46,7 +46,7 @@ export class CreateComponent {
       return this.userForm.get('password');
     }
 
-    create() {
+    createUser() {
 
         if (this.userForm.valid) {
             this._userService.create(this.userForm.value).subscribe(() => this._router.navigate(['/validation']));

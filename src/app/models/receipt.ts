@@ -6,7 +6,11 @@ export interface receiptForm {
       expirationDate:Date;
       temperature: number;
       frozen:boolean;
-      frozenComment:string;
+      frozenTemp:number;
+      frozenDate:Date;
+      thawedDate:Date;
+      frozenExpirationDate:Date;
+      frozenDays: number;
       labelling:boolean;
       labelComment:string;
       packaging:boolean;
@@ -14,6 +18,7 @@ export interface receiptForm {
       hygiene:boolean;
       hygieneComment:string;
       comment:string;
+      providerId:number;
 
 
 }
