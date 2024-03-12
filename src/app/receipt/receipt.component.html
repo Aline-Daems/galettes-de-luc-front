@@ -1,6 +1,6 @@
 <section>
 
-  <form [formGroup]="receiptForm" (ngSubmit)="create()" >
+  <form [formGroup]="receiptForm" (ngSubmit)="create()">
     <h2>Entrer une nouvelle réception:</h2>
 
     <div class="form">
@@ -11,53 +11,114 @@
       <label>Email du réceptionniste</label>
       <input type="email" formControlName="email">
     </div>
+
+    <div class="form">
+      <label>Fournisseur</label>
+      <select formControlName="providerId">
+        <option *ngFor="let p of array" [ngValue]="p.id">{{ p.name }}</option>
+
+      </select>
+    </div>
+
+
     <div class="form">
       <label>Numéro fournisseur</label>
       <input type="text" formControlName="providerNumber">
     </div>
     <div class="form">
-      <label>Quantité</label>
+      <label>Quantité (en KG)</label>
       <input type="number" formControlName="quantity">
+
+      <span
+        *ngIf='this.receiptForm.get("quantity")?.dirty && this.receiptForm.get("quantity")?.touched && this.receiptForm  && this.receiptForm.get("quantity")?.errors'>
+        {{ errorQuantity }}
+      </span>
     </div>
 
     <div class="form">
-      <label>Date d'expiration</label>
+      <label>D.L.U</label>
       <input type="date" formControlName="expirationDate">
+      <span
+        *ngIf='this.receiptForm.get("expirationDate")?.dirty &&   this.receiptForm.get("expirationDate")?.touched && receiptForm.get("expirationDate")?.hasError("pasDanslePasse")'>
+        {{ errorDate }}
+      </span>
     </div>
     <div class="form">
       <label>Température</label>
       <input type="number" formControlName="temperature">
     </div>
+
+
     <div class="form-box">
       <label>Produit surgelé ? </label>
       <input type="checkbox" class="frozen" formControlName="frozen">
     </div>
+
+    <!-- If  the checkbox frozen is true -->
+    <div *ngIf="this.receiptForm.get('frozen')?.value == true" class="form">
+
+      <label>Température</label>
+      <input type="text" formControlName="frozenTemp">
+
+      <label>Date de congélation</label>
+      <input type="date" formControlName="frozenDate">
+
+      <label>Date de décongélation</label>
+      <input type="date" formControlName="thawedDate">
+
+      <label>DLC</label>
+      <input type="date" formControlName="frozenExpirationDate">
+
+      <label>Nombre de jour</label>
+      <input type="number" formControlName="frozenDays">
+    </div>
+
+
     <div class="form-box">
-      <label>Etiquetage non conforme ?  </label>
+      <label>Etiquetage non conforme ? </label>
       <input type="checkbox" formControlName="labelling">
     </div>
+
+    <!-- if labelling is not ok -->
+
+    <div *ngIf="receiptForm.get('labelling')?.value == true" class="form">
+      <label>Commentaire</label>
+      <textarea formControlName="labelComment">
+      </textarea>
+    </div>
+
+
+
     <div class="form-box">
-      <label>Emballage non conforme ?  </label>
+      <label>Emballage non conforme ? </label>
       <input type="checkbox" formControlName="packaging">
     </div>
+
+
+    <!-- if packaging is not ok -->
+    <div *ngIf="receiptForm.get('packaging')?.value == true" class="form">
+      <label>Commentaire</label>
+      <textarea formControlName="packagingComment">
+      </textarea>
+    </div>
+
     <div class="form-box">
-      <label>Hygiène  non conforme ?  </label>
+      <label>Hygiène non conforme ? </label>
       <input type="checkbox" class="hygiene" formControlName="hygiene">
     </div>
 
+    <!-- if hygiene is not ok -->
+    <div *ngIf="receiptForm.get('hygiene')?.value == true" class="form">
+      <label>Commentaire</label>
+      <textarea formControlName="hygieneComment">
+      </textarea>
+    </div>
     <div class="form">
       <label>Commentaire</label>
       <textarea formControlName="comment">
 
       </textarea>
     </div>
-<!--    <div>-->
-<!--      <label> Role</label>-->
-<!--      <select formControlName="role">-->
-
-<!--      </select>-->
-<!--    </div>-->
-
 
 
     <input type="submit" value="Créer">
