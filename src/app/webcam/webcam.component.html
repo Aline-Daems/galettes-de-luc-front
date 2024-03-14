@@ -1,0 +1,18 @@
+
+<div class="photo-box">
+  <!-- Photo-->
+  <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)"  [width]="366" [height]="900" ></webcam>
+  <button (click)="capture()"><fa-icon [icon]="faCamera"></fa-icon></button>
+
+</div>
+
+
+
+
+<div class="permissions">
+  <!--Ask permissions to user -->
+  <small>Vous ne voyez pas la caméra ?</small>
+  <button (click)="checkPermissions()">Gérer les permissions</button>
+  <p *ngIf="status">Status : {{status}}</p>
+</div>
+

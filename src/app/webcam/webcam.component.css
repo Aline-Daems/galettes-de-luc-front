@@ -1,0 +1,42 @@
+.photo-box {
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-box button {
+  background: #235b3d;
+  color:#fefefe;
+  border:0px solid black;
+  border-radius: 0.2rem;
+  padding:0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: bold;
+  font-size:2.5rem;
+  margin-top:1rem;
+  width: 23rem
+
+}
+div{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+}
+
+.permissions{
+  align-items: flex-start;
+  bottom: -7rem;
+  position:relative;
+}
+
+.permissions button {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  cursor:pointer;
+  color:var(--primaryGreen);
+
+}

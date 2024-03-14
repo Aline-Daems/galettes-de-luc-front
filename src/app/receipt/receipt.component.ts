@@ -6,6 +6,7 @@ import {providerForm} from "../models/provider";
 import {ProviderService} from "../services/provider.service";
 import {Subject, takeUntil} from "rxjs";
 import {DateValidator} from "../validators/date.validator";
+import {PhotoService} from "../services/photo.service";
 
 @Component({
   selector: 'app-receipt',
@@ -23,7 +24,7 @@ export class ReceiptComponent implements OnInit{
 
   $destroyed = new Subject<Boolean>()
 
-  constructor(private readonly _receiptService:ReceiptService, private readonly _formBuilder: FormBuilder, private _router: Router, private  _providerService:ProviderService) {
+  constructor(private readonly _receiptService:ReceiptService, private readonly _formBuilder: FormBuilder, private _router: Router, private  _providerService:ProviderService, private  _photoService:PhotoService) {
 
     this.receiptForm= this._formBuilder.group({
         dateReceipt :  this._formBuilder.control((new Date()).toISOString().substring(0,10)),
@@ -69,7 +70,12 @@ export class ReceiptComponent implements OnInit{
 
   create(){
     if(this.receiptForm.valid) {
-      this._receiptService.create(this.receiptForm.value).subscribe(() => this._router.navigate(['/home']));
+      this._receiptService.create(this.receiptForm.value).subscribe(id =>  {
+
+        console.log(id)
+        this._photoService.id=id
+        this._router.navigate(['/photo'])
+      });
     }else{
       console.log(this.receiptForm.get("expirationDate")?.errors)
 

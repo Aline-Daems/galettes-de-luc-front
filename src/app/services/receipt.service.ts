@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {url} from "../url";
 import {receiptForm} from "../models/receipt";
@@ -13,8 +13,10 @@ export class ReceiptService {
   constructor(private readonly _httpClient:HttpClient, @Inject(url) private _url:String, ) { }
 
 
-  create(receiptForm: receiptForm){
-    return this._httpClient.post(this._url+'receipt/create', receiptForm)
+  create(receiptForm: receiptForm): Observable<number | undefined>{
+    return this._httpClient.post<number |undefined>(this._url+'receipt/create', receiptForm)
   }
+
+
 
 }

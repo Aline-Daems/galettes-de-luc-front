@@ -19,6 +19,9 @@ import { ReceiptComponent } from './receipt/receipt.component';
 import { ProviderComponent } from './provider/provider.component';
 import { NewProviderComponent } from './new-provider/new-provider.component';
 import {authInterceptor} from "./interceptor/auth.interceptor";
+import {WebcamModule} from "ngx-webcam";
+import { WebcamComponent } from './webcam/webcam.component';
+import { PreviewComponent } from './preview/preview.component';
 
 
 @NgModule({
@@ -32,7 +35,10 @@ import {authInterceptor} from "./interceptor/auth.interceptor";
     ValidationComponent,
     ReceiptComponent,
     ProviderComponent,
-    NewProviderComponent
+    NewProviderComponent,
+    WebcamComponent,
+    PreviewComponent
+
 
   ],
   imports: [
@@ -41,7 +47,9 @@ import {authInterceptor} from "./interceptor/auth.interceptor";
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    WebcamModule
+
   ],
   providers: [
     {provide: url, useValue:"http://localhost:8080/"},

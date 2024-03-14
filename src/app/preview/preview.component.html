@@ -1,0 +1,10 @@
+<router-outlet></router-outlet>
+
+
+<div *ngIf="preview">
+
+    <img [src]="preview"  width="366">
+
+    <button (click)="proceed()">Accepter</button>
+    <button (click)="return()">Reprendre une photo</button>
+</div>
