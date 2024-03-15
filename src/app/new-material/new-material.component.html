@@ -1,0 +1,22 @@
+<section>
+
+  <form [formGroup]="materialForm" (ngSubmit)="create()">
+    <h2>Ajouter une nouvelle matière première:</h2>
+
+    <div>
+      <label>Nom:</label>
+      <input type="text" formControlName="name" placeholder=" ex: 1-0-Farine altantique">
+
+    </div>
+    <div class="checkbox-container">
+      <label>Produit frais ? </label>
+      <input type="checkbox" formControlName="fresh">
+
+      <label>Produit bio ? </label>
+      <input type="checkbox" formControlName="bio">
+    </div>
+
+    <input type="submit" value="Créer">
+  </form>
+
+</section>

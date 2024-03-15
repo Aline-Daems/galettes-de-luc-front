@@ -1,0 +1,42 @@
+<div>
+  <h2>Matières premières</h2>
+
+  <a routerLink="/material/new"><fa-icon [icon]="faPlus" class="plus"></fa-icon></a>
+  <table>
+
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Bio</th>
+      <th>Frais</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of array">
+      <td class="name">
+
+        <span>
+      <!--  <button (click)="delete(a.id)"><fa-icon [icon]="faXmark"></fa-icon></button>-->
+        <button><fa-icon [icon]="faPen"></fa-icon></button>
+         </span>
+        <p>{{ a.name }}</p>
+      </td>
+
+      <td *ngIf="a.bio">
+        <fa-icon [icon]="faCheck"></fa-icon>
+      </td>
+      <td *ngIf="!a.bio">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </td>
+      <td *ngIf="a.fresh">
+        <fa-icon [icon]="faCheck"></fa-icon>
+      </td>
+      <td *ngIf="!a.fresh">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+span{
+  color: #a81717;
+  font-size: 0.9rem;
+}
+div{
+  margin-bottom:2rem;
+  display:flex;
+  flex-direction: column;
+}
+
+input[type="checkbox"]{
+  width:3rem;
+  margin-left:1rem;
+}
+
+
+.checkbox-container{
+  display: initial;
+}
