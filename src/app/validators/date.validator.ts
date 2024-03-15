@@ -1,16 +1,16 @@
 import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
-export function DateValidator():ValidatorFn {
+export function DateValidator(): ValidatorFn {
 
-  return(
+  return (
     control: AbstractControl
   ): ValidationErrors | null => {
     const today = new Date()
     const inputDate = new Date(control.value)
 
-    if(inputDate > today){
-      return  null
-    }else {
+    if (inputDate > today) {
+      return null
+    } else {
 
       return {
 

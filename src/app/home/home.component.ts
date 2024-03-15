@@ -67,6 +67,16 @@ export class HomeComponent implements OnInit{
       this._router.navigate(['/providers'])
     }
 
+    newMaterial(){
+
+      this._router.navigate(['material/new'])
+    }
+
+    materials(){
+
+      this._router.navigate(['materials'])
+    }
+
     protected readonly faTruckRampBox = faTruckRampBox;
     protected readonly faTruckFront = faTruckFront;
     protected readonly faEgg = faEgg;

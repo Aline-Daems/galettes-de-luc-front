@@ -33,6 +33,19 @@ export class UserService {
     }))
   }
 
+  logout() {
+
+    const token = localStorage.getItem("token")
+
+    if (token !== null) {
+
+      localStorage.removeItem("token");
+      localStorage.clear();
+
+
+    }
+  }
+
 
   updateUserStatus(status:string |null){
 

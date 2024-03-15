@@ -9,6 +9,8 @@ import {NewProviderComponent} from "./new-provider/new-provider.component";
 import {ReceiptComponent} from "./receipt/receipt.component";
 import {WebcamComponent} from "./webcam/webcam.component";
 import {PreviewComponent} from "./preview/preview.component";
+import {NewMaterialComponent} from "./new-material/new-material.component";
+import {MaterialsComponent} from "./materials/materials.component";
 
 const routes: Routes = [
   {path:'create', component: CreateComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:'providers/new', component:NewProviderComponent},
   {path:'receipts/new', component:ReceiptComponent},
   {path:'photo', component:WebcamComponent},
-  {path:'preview', component:PreviewComponent}
+  {path:'preview', component:PreviewComponent},
+  {path:'material/new', component:NewMaterialComponent},
+  {path:'materials', component:MaterialsComponent}
 
 ];
 

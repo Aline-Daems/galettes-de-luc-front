@@ -22,6 +22,8 @@ import {authInterceptor} from "./interceptor/auth.interceptor";
 import {WebcamModule} from "ngx-webcam";
 import { WebcamComponent } from './webcam/webcam.component';
 import { PreviewComponent } from './preview/preview.component';
+import { NewMaterialComponent } from './new-material/new-material.component';
+import { MaterialsComponent } from './materials/materials.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { PreviewComponent } from './preview/preview.component';
     ProviderComponent,
     NewProviderComponent,
     WebcamComponent,
-    PreviewComponent
+    PreviewComponent,
+    NewMaterialComponent,
+    MaterialsComponent
 
 
   ],

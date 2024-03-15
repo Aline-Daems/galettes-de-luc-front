@@ -5,6 +5,14 @@
   align-items: center;
 }
 
+.checkbox-container{
+  margin-bottom:0;
+}
+
+.checkbox-container  input{
+ margin-bottom: 2rem;
+}
+
 .form-box{
   display:flex;
   width:21rem;

@@ -13,6 +13,13 @@
     </div>
 
     <div class="form">
+      <label>Matière première</label>
+      <select formControlName="materialId">
+        <option *ngFor="let m of materiaArray" [ngValue]="m.id">{{ m.name }}</option>
+      </select>
+    </div>
+
+    <div class="form">
       <label>Fournisseur</label>
       <select formControlName="providerId">
         <option *ngFor="let p of array" [ngValue]="p.id">{{ p.name }}</option>
@@ -43,11 +50,13 @@
         {{ errorDate }}
       </span>
     </div>
-    <div class="form">
-      <label>Température</label>
-      <input type="number" formControlName="temperature">
-    </div>
 
+    <div >
+      <div class="form">
+        <label>Température</label>
+        <input type="number" formControlName="temperature">
+      </div>
+    </div>
 
     <div class="form-box">
       <label>Produit surgelé ? </label>
@@ -55,10 +64,14 @@
     </div>
 
     <!-- If  the checkbox frozen is true -->
-    <div *ngIf="this.receiptForm.get('frozen')?.value == true" class="form">
+    <div *ngIf="this.receiptForm.get('frozen')?.value == true" class="form checkbox-container">
 
       <label>Température</label>
       <input type="text" formControlName="frozenTemp">
+      <span
+        *ngIf='this.receiptForm.get("frozenTemp")?.dirty &&   this.receiptForm.get("frozenTemp")?.touched && receiptForm.get("frozenTemp")?.hasError("required")'>
+        {{ errorFrozen }}
+      </span>
 
       <label>Date de congélation</label>
       <input type="date" formControlName="frozenDate">
