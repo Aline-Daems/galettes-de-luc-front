@@ -18,7 +18,7 @@
 
 
         <button (click)="delete(a.id)"><fa-icon [icon]="faXmark"></fa-icon></button>
-        <button><fa-icon [icon]="faPen"></fa-icon></button>
+        <button><fa-icon [icon]="faPen" (click)="gotToUpdate(a.id)"></fa-icon></button>
          </span>
         <p>{{ a.name }}</p>
       </td>

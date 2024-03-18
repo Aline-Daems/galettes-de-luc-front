@@ -6,6 +6,7 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons/faPlus";
 import {faXmark} from "@fortawesome/free-solid-svg-icons/faXmark";
 import {faPen} from "@fortawesome/free-solid-svg-icons/faPen";
 import {faCheck} from "@fortawesome/free-solid-svg-icons/faCheck";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MaterialsComponent implements OnInit{
   array!: materialForm[];
   $destroyed = new Subject<Boolean>()
 
-  constructor(private readonly _materialService:MaterialService) {
+  constructor(private readonly _materialService:MaterialService, private readonly _router:Router) {
   }
 
   ngOnInit(): void {
@@ -34,6 +35,18 @@ export class MaterialsComponent implements OnInit{
         complete: () => console.log("chargement ok")
       }
     )
+  }
+
+  desactive(materialId:number){
+
+    this._materialService.desactive(materialId).subscribe(() => this.view())
+
+
+  }
+
+  gotToUpdate (itemId:number){
+    this._router.navigate(['material/new', itemId, {mode: 'update'}])
+
   }
 
 

@@ -14,7 +14,7 @@
 
     <div class="form">
       <label>Matière première</label>
-      <select formControlName="materialId">
+      <select formControlName="materialId" (change)="onMaterialChange()">
         <option *ngFor="let m of materiaArray" [ngValue]="m.id">{{ m.name }}</option>
       </select>
     </div>
@@ -51,7 +51,7 @@
       </span>
     </div>
 
-    <div >
+    <div *ngIf="fresh">
       <div class="form">
         <label>Température</label>
         <input type="number" formControlName="temperature">

@@ -33,8 +33,8 @@ export class ProviderComponent implements  OnInit, OnDestroy{
   afficher(){
     this._providerService.getAll().pipe(takeUntil(this.$destroyed)).subscribe({
       next:(valeur) => this.array = valeur,
-      error:(err) => console.log(err),
-      complete:() => console.log("chargement ok")
+      error:(err) => console.log(err)
+
     })
   }
 
@@ -42,6 +42,11 @@ export class ProviderComponent implements  OnInit, OnDestroy{
 
   this._providerService.delete(providerId).subscribe(()=>
     this.afficher())
+
+  }
+
+  gotToUpdate (itemId:number){
+    this._router.navigate(['providers/new', itemId, {mode: 'update'}])
 
   }
 
