@@ -8,10 +8,10 @@
 .checkbox-container{
   margin-bottom:0;
 }
-
-.checkbox-container  input{
- margin-bottom: 2rem;
+.checkbox-container input{
+  margin-bottom:2rem;
 }
+
 
 .form-box{
   display:flex;
@@ -38,4 +38,12 @@ textarea{
 input[type="checkbox"]{
   width:3rem;
   margin-left:1rem;
+}
+
+.invalid:focus {
+  border:  1px solid #f58b8b;
+}
+
+.invalid:focus{
+  outline: none;
 }

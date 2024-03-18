@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {url} from "../url";
 
 import {BehaviorSubject, tap} from "rxjs";
-import {AuthDTO, loginForm} from "../models/user";
+import {AuthDTO, loginForm, UserForm} from "../models/user";
 
 class userForm {
 }
@@ -16,7 +16,7 @@ export class UserService {
 
   constructor(private readonly _httpClient:HttpClient, @Inject(url) private _url:string) { }
 
-  create(userForm: userForm){
+  create(userForm: UserForm){
     return this._httpClient.post(this._url+'user/create', userForm)
   }
 

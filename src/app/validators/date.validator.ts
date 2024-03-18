@@ -8,15 +8,15 @@ export function DateValidator(): ValidatorFn {
     const today = new Date()
     const inputDate = new Date(control.value)
 
-    if (inputDate > today) {
-      return null
-    } else {
-
+    if (inputDate < today) {
       return {
 
-        pasDanslePasse: "La date doit être dans le futur"
+        notInThePast: "Date can't be in the past"
 
       }
+    } else {
+      return null
+
     }
   }
 

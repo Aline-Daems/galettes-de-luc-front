@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserService} from "../services/user.service";
 import {PasswordValidator} from "../validators/password.validator";
+import {Roles, RolesMapping} from "../models/enums";
 
 @Component({
     selector: 'app-create',
@@ -17,6 +18,8 @@ export class CreateComponent {
     errorFirstname:string="";
     errorLastname:string="";
     errorPassword:string="";
+    public RolesMapping = RolesMapping;
+    public roles = Object.values(Roles);
 
 
     constructor(private readonly _userService: UserService, private readonly _formBuilder: FormBuilder, private _router: Router) {
@@ -26,7 +29,7 @@ export class CreateComponent {
             lastname: this._formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             password: this._formBuilder.control('', [Validators.required, PasswordValidator()]),
             email: this._formBuilder.control('', [Validators.required, Validators.email]),
-            role: this._formBuilder.control(''),
+            roles: this._formBuilder.control([Roles.admin]),
         })
     }
 

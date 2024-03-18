@@ -8,3 +8,11 @@ div{
     flex-direction: column;
 }
 
+select{
+  width:21rem;
+  height:2rem;
+  background: #fefefe;
+  border:1px solid grey;
+  padding-left:0.5rem;
+}
+

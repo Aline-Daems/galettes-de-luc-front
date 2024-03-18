@@ -8,7 +8,7 @@
       <input type="text" formControlName="firstname" placeholder=" ex: John">
 
       <span *ngIf="firstname?.invalid && ( firstname?.touched || firstname?.dirty)">
-                        {{errorFirstname}}
+                        {{ errorFirstname }}
       </span>
 
 
@@ -18,7 +18,7 @@
       <label>Nom</label>
       <input type="text" formControlName="lastname" placeholder=" ex: Doe">
       <span *ngIf="lastname?.invalid && ( lastname?.touched || lastname?.dirty)">
-              {{errorLastname}}</span>
+              {{ errorLastname }}</span>
 
     </div>
     <div>
@@ -26,14 +26,28 @@
       <label>Mot de passe</label>
       <input type="password" formControlName="password">
       <span *ngIf="password?.invalid && (password?.touched || password?.dirty)">
-                {{errorPassword}}</span>
+                {{ errorPassword }}</span>
     </div>
 
     <div>
       <label>Email</label>
       <input type="text" formControlName="email" placeholder=" ex: John@Doe.be">
       <span *ngIf="email?.invalid && (email?.touched || email?.dirty)">
-                {{errorMail}}</span>
+                {{ errorMail }}</span>
+    </div>
+
+
+    <div>
+
+      <label> Role : </label>
+      <select formControlName="role">
+
+        <option *ngFor="let role of roles" [value]="roles">
+          {{role}}
+        </option>
+
+
+      </select>
     </div>
 
 
