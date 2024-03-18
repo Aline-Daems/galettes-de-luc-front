@@ -15,6 +15,7 @@ export class ReceiptService {
 
   create(receiptForm: receiptForm): Observable<number | undefined>{
     return this._httpClient.post<number |undefined>(this._url+'receipt/create', receiptForm)
+
   }
 
 

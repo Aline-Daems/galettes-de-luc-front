@@ -19,11 +19,14 @@ const routes: Routes = [
   {path:'validation', component:ValidationComponent},
   {path:'providers', component:ProviderComponent},
   {path:'providers/new', component:NewProviderComponent},
+  {path:'providers/new/:id', component:NewProviderComponent},
   {path:'receipts/new', component:ReceiptComponent},
   {path:'photo', component:WebcamComponent},
   {path:'preview', component:PreviewComponent},
   {path:'material/new', component:NewMaterialComponent},
-  {path:'materials', component:MaterialsComponent}
+  {path:'material/new/:id', component:NewMaterialComponent},
+  {path:'materials', component:MaterialsComponent},
+  {path:'', component: HomeComponent}
 
 ];
 
