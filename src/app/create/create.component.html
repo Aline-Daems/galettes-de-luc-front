@@ -50,6 +50,20 @@
     </div>
 
 
+    <div>
+
+      <label> Role : </label>
+      <select formControlName="role">
+
+        <option *ngFor="let role of roles" [value]="roles">
+          {{role}}
+        </option>
+
+
+      </select>
+    </div>
+
+
     <input type="submit" value="Créer">
   </form>
 

@@ -43,10 +43,10 @@ export class ReceiptComponent implements OnInit {
       expirationDate: this._formBuilder.control(((new Date()).toISOString().substring(0, 10) + 1), [Validators.required, DateValidator()]),
       temperature: this._formBuilder.control(''),
       frozen: this._formBuilder.control(false),
-      frozenTemp: this._formBuilder.control('', ReceiptValidator('frozen')),
-      frozenDate: this._formBuilder.control(''),
-      thawedDate: this._formBuilder.control(''),
-      frozenExpirationDate: this._formBuilder.control(''),
+      frozenTemp: this._formBuilder.control(0),
+      frozenDate: this._formBuilder.control(new Date().toISOString().substring(0, 10)),
+      thawedDate: this._formBuilder.control('', DateValidator()),
+      frozenExpirationDate: this._formBuilder.control('',DateValidator()),
       frozenDays: this._formBuilder.control(''),
       labelling: this._formBuilder.control(false),
       labelComment: this._formBuilder.control(''),
@@ -56,7 +56,7 @@ export class ReceiptComponent implements OnInit {
       hygieneComment: this._formBuilder.control(''),
       comment: this._formBuilder.control(''),
 
-    })
+    }, {validators: ReceiptValidator()})
   }
 
   ngOnInit(): void {

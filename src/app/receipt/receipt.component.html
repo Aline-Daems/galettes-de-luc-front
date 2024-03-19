@@ -9,7 +9,7 @@
     </div>
     <div class="form">
       <label>Email du réceptionniste</label>
-      <input type="email" formControlName="email">
+      <input type="email" formControlName="email" [ngClass]="{'invalid': receiptForm.get('email')?.errors}">
     </div>
 
     <div class="form">
@@ -30,7 +30,7 @@
 
     <div class="form">
       <label>Numéro fournisseur</label>
-      <input type="text" formControlName="providerNumber">
+      <input type="text" formControlName="providerNumber" [ngClass]="{'invalid': receiptForm.get('providerNumber')?.invalid}">
     </div>
     <div class="form">
       <label>Quantité (en KG)</label>
@@ -44,11 +44,11 @@
 
     <div class="form">
       <label>D.L.U</label>
-      <input type="date" formControlName="expirationDate">
-      <span
-        *ngIf='this.receiptForm.get("expirationDate")?.dirty &&   this.receiptForm.get("expirationDate")?.touched && receiptForm.get("expirationDate")?.hasError("pasDanslePasse")'>
-        {{ errorDate }}
-      </span>
+      <input type="date" formControlName="expirationDate" [ngClass]="{'invalid': receiptForm.get('expirationDate')?.dirty && receiptForm.hasError('notInThePast')}">
+<!--      <span-->
+<!--        *ngIf='this.receiptForm.get("expirationDate")?.dirty &&   this.receiptForm.get("expirationDate")?.touched && receiptForm.get("expirationDate")?.hasError("pasDanslePasse")'>-->
+<!--        {{ errorDate }}-->
+<!--      </span>-->
     </div>
 
     <div *ngIf="fresh">
@@ -67,23 +67,20 @@
     <div *ngIf="this.receiptForm.get('frozen')?.value == true" class="form checkbox-container">
 
       <label>Température</label>
-      <input type="text" formControlName="frozenTemp">
-      <span
-        *ngIf='this.receiptForm.get("frozenTemp")?.dirty &&   this.receiptForm.get("frozenTemp")?.touched && receiptForm.get("frozenTemp")?.hasError("required")'>
-        {{ errorFrozen }}
-      </span>
+      <input type="text" formControlName="frozenTemp" [ngClass]="{'invalid': receiptForm.hasError('requiredTemp')}">
 
       <label>Date de congélation</label>
-      <input type="date" formControlName="frozenDate">
+      <input type="date" formControlName="frozenDate" [ngClass]="{'invalid': receiptForm.hasError('requiredDate')}">
 
       <label>Date de décongélation</label>
-      <input type="date" formControlName="thawedDate">
+      <input type="date" formControlName="thawedDate"  [ngClass]="{'invalid': receiptForm.hasError('requiredThawedDate')}">
 
       <label>DLC</label>
-      <input type="date" formControlName="frozenExpirationDate">
+      <input type="date" formControlName="frozenExpirationDate" [ngClass]="{'invalid': receiptForm.hasError('requiredExpiration')}">
 
       <label>Nombre de jour</label>
-      <input type="number" formControlName="frozenDays">
+      <input type="number" formControlName="frozenDays"  [ngClass]="{'invalid': receiptForm.hasError(' requiredDays')}">
+
     </div>
 
 

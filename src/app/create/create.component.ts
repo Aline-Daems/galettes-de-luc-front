@@ -22,11 +22,6 @@ export class CreateComponent {
     public roles = Object.values(Roles);
 
 
-
-
-
-
-
     constructor(private readonly _userService: UserService, private readonly _formBuilder: FormBuilder, private _router: Router) {
 
         this.userForm = this._formBuilder.group({
@@ -34,7 +29,7 @@ export class CreateComponent {
             lastname: this._formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             password: this._formBuilder.control('', [Validators.required, PasswordValidator()]),
             email: this._formBuilder.control('', [Validators.required, Validators.email]),
-            role: this._formBuilder.control([Roles.admin]),
+            roles: this._formBuilder.control([Roles.admin]),
         })
     }
 

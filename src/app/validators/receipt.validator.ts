@@ -1,28 +1,56 @@
 import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
 
-export function ReceiptValidator(frozen: string): ValidatorFn {
+export function ReceiptValidator(): ValidatorFn {
 
   return (
     control: AbstractControl
   ): ValidationErrors | null => {
 
 
-    const frozenValue = control.get(frozen)?.value;
-    const frozenInput = control?.value;
+    const frozenValue = control.get('frozen')?.value;
+    const frozenTempInput = control.get('frozenTemp');
+    const frozenDateInput = control.get('frozenDate');
+    const thawedDateInput = control.get('thawedDate');
+    const frozenExpirationDateInput = control.get('frozenExpirationDate');
+    const frozenDaysInput = control.get('frozenDays');
 
-    if (!frozenValue && frozenInput) {
-      console.log("le champs frozentemp devrait être requis");
+
+    if (frozenValue == true && frozenTempInput?.value == "" && frozenTempInput.dirty) {
 
       return {
-        required: "Ne peut pas être vide"
-
+        requiredTemp: "Can't be null"
       }
 
-
-    } else {
-
-      return null
     }
+
+    if (frozenValue == true && frozenDateInput?.value == "" && frozenDateInput?.dirty) {
+
+      return {
+
+        requiredDate: "Can't be null"
+      }
+    }
+
+    if (frozenValue == true && thawedDateInput?.value == "") {
+
+      return {
+        requiredThawedDate: "Can't be null"
+      }
+    }
+    if (frozenValue == true && frozenExpirationDateInput?.value == undefined && frozenExpirationDateInput?.dirty) {
+
+      return {
+        requiredExpiration: "Can't be null"
+      }
+    }
+    if (frozenValue == true && frozenDaysInput?.value == "" && frozenDaysInput?.dirty) {
+      return {
+        requiredDays: "Can't be null"
+      }
+    }
+
+    return null
+
   }
 
 
