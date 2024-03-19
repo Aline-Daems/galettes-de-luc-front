@@ -29,7 +29,7 @@ export class CreateComponent {
             lastname: this._formBuilder.control('', [Validators.required, Validators.minLength(3)]),
             password: this._formBuilder.control('', [Validators.required, PasswordValidator()]),
             email: this._formBuilder.control('', [Validators.required, Validators.email]),
-            roles: this._formBuilder.control([Roles.admin]),
+            role: this._formBuilder.control(''),
         })
     }
 
