@@ -24,6 +24,7 @@ import { WebcamComponent } from './webcam/webcam.component';
 import { PreviewComponent } from './preview/preview.component';
 import { NewMaterialComponent } from './new-material/new-material.component';
 import { MaterialsComponent } from './materials/materials.component';
+import { PreviewFormComponent } from './preview-form/preview-form.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { MaterialsComponent } from './materials/materials.component';
     WebcamComponent,
     PreviewComponent,
     NewMaterialComponent,
-    MaterialsComponent
+    MaterialsComponent,
+    PreviewFormComponent
 
 
   ],

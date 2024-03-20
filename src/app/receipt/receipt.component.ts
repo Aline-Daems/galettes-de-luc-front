@@ -90,14 +90,10 @@ export class ReceiptComponent implements OnInit {
 
       this._receiptService.create(this.receiptForm.value).subscribe(id => {
 
-        console.log(id)
-        this._photoService.id = id
+
+        this._photoService.idForm = id
         this._router.navigate(['/photo'])
       });
-    } else {
-      console.log(this.receiptForm.get("expirationDate")?.errors)
-      console.log(this.receiptForm.get("frozenTemp")?.errors)
-
     }
   }
 

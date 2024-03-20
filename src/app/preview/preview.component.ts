@@ -26,13 +26,13 @@ export class PreviewComponent {
   proceed(){
     console.log(this._photoService.previewImage);
 
-    console.log(this._photoService.id)
+    console.log(this._photoService.idForm)
 
-    if(this._photoService.id !== undefined){
+    if(this._photoService.idForm !== undefined){
 
-      this._photoService.captureImage(this._photoService.previewImage, this._photoService.id).subscribe(  () => {
+      this._photoService.captureImage(this._photoService.previewImage, this._photoService.idForm).subscribe(  () => {
 
-         this._router.navigate(['/home'])
+         this._router.navigate(['/previewForm'])
       });
     }
 

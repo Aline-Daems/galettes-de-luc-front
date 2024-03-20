@@ -11,6 +11,7 @@ import {WebcamComponent} from "./webcam/webcam.component";
 import {PreviewComponent} from "./preview/preview.component";
 import {NewMaterialComponent} from "./new-material/new-material.component";
 import {MaterialsComponent} from "./materials/materials.component";
+import {PreviewFormComponent} from "./preview-form/preview-form.component";
 
 const routes: Routes = [
   {path:'create', component: CreateComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path:'material/new', component:NewMaterialComponent},
   {path:'material/new/:id', component:NewMaterialComponent},
   {path:'materials', component:MaterialsComponent},
+  {path:'previewForm', component:PreviewFormComponent},
   {path:'', component: LoginComponent}
 
 ];

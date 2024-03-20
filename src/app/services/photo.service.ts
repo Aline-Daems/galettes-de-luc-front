@@ -8,12 +8,12 @@ import {url} from "../url";
 export class PhotoService {
   previewImage: string = "";
 
-  id?:number;
+  idForm?:number;
   constructor(private readonly  _httpClient:HttpClient, @Inject(url) private _url:string) { }
 
 
-  captureImage(file:String, id:number){
+  captureImage(file:String, idForm:number){
 
-    return this._httpClient.put<any>(this._url+`receipt/file/${id}`, file)
+    return this._httpClient.put<any>(this._url+`receipt/file/${idForm}`, file)
   }
 }

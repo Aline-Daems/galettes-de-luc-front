@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {url} from "../url";
-import {receiptForm} from "../models/receipt";
+import {Receipt, receiptForm} from "../models/receipt";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,8 @@ export class ReceiptService {
 
   }
 
-
+  getOne(id:number){
+      return this._httpClient.get<Receipt>(this._url+`receipt/${id}`)
+  }
 
 }
