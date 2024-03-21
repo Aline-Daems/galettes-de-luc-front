@@ -25,6 +25,15 @@ export class ReceiptService {
   getImageByID(id: number){
     return this._httpClient.get(this._url+`receipt/photo/${id}`, {responseType: 'blob'});
   }
+  sendMail(receiptForm:receiptForm, templateName:string, providerId:number, materialId:number){
 
+    const formData  = {
+      receiptForm:receiptForm,
+      templateName:templateName,
+      providerId:providerId,
+      materialId:materialId
+    }
+    return this._httpClient.post<String>(this._url+'mail/sendEmail', formData)
+  }
 
 }

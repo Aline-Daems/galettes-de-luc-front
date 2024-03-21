@@ -3,6 +3,7 @@ import {ReceiptService} from "../services/receipt.service";
 import {Receipt, receiptForm} from "../models/receipt";
 import {PhotoService} from "../services/photo.service";
 import {DomSanitizer} from "@angular/platform-browser";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-preview-form',
@@ -11,10 +12,12 @@ import {DomSanitizer} from "@angular/platform-browser";
 })
 export class PreviewFormComponent implements OnInit{
   receipt!: Receipt
+
+  receiptForm!: receiptForm;
   id? = this._photoService.idForm;
 
   image:any;
-  constructor(private _receiptService:ReceiptService, private _photoService:PhotoService, private  sanitizer:DomSanitizer) {
+  constructor(private _receiptService:ReceiptService, private _photoService:PhotoService, private  sanitizer:DomSanitizer, private _router:Router) {
   }
 
   ngOnInit(): void {
@@ -57,6 +60,16 @@ export class PreviewFormComponent implements OnInit{
   }
 
 
+
+  sendMail(receiptForm:receiptForm, templateName:string, providerId:number, materialId:number){
+
+    this._receiptService.sendMail(receiptForm, templateName, providerId, materialId).subscribe(()=> {
+      console.log(templateName)
+      this._router.navigate(["/validations"])
+    })
+
+
+  }
 
 
 }
