@@ -18,8 +18,6 @@ export class WebcamComponent {
 
  trigger: Subject<void> = new Subject();
 
-
-
  btnLabel:string ="Prendre une photo";
 
  constructor(private _router:Router, private _photoService:PhotoService) {
@@ -28,14 +26,30 @@ export class WebcamComponent {
    return this.trigger.asObservable();
  }
 
- //mettre cette fonctionnalité dans un component enfant "preview"
 
  snapshot(event: WebcamImage){
-  console.log(event)
-    this._photoService.previewImage = event.imageAsDataUrl;
+    console.log(event)
+
+ const blob = this.dataURItoBlob(event.imageAsDataUrl);
+
+    const file = new File([blob], 'captured_image.jpg', {type:'image/jpeg'})
+
+   this._photoService.previewImage = file;
     this.btnLabel = 'Reprendre une photo'
  }
-  checkPermissions(){
+
+  dataURItoBlob(dataURI: string) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const uint8Array = new Uint8Array(arrayBuffer);
+
+    for (let i = 0; i < byteString.length; i++) {
+      uint8Array[i] = byteString.charCodeAt(i);
+    }
+
+    return new Blob([arrayBuffer], { type: 'image/jpeg' });
+  }
+    checkPermissions(){
     navigator.mediaDevices.getUserMedia({
       video: {
           width: 250,

@@ -32,21 +32,31 @@ export class PreviewFormComponent implements OnInit{
   getOne(id:number){
     this._receiptService.getOne(id).subscribe(receipt => {
         this.receipt = receipt;
+        this.getImageDataUrl(id)
       }
     )
   }
 
 
 
-  getImageDataUrl():any{
+  getImageDataUrl(id:number):any{
 
-    const imageBlob = new Blob([new Uint8Array(this.receipt.imageData)], {type:'image/png'});
+    this._receiptService.getImageByID(id).subscribe( {
 
-    const imageUrl = URL.createObjectURL(imageBlob);
+      next: response => {
+        const blob = new Blob([response], { type: 'image/jpeg' });
+        this.image = URL.createObjectURL(blob);
+        console.log("tout va bien !!")
 
-    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
+      },
+      error: err => console.log(err)
+      } );
+
+
 
   }
+
+
 
 
 }

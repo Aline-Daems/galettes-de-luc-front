@@ -12,7 +12,7 @@ import {ReceiptService} from "../services/receipt.service";
 export class PreviewComponent {
 
 
-  preview:string =""
+  preview:File | undefined;
 
   constructor(private _photoService:PhotoService, private _router:Router, private  receiptService:ReceiptService) {
     this.preview =  this._photoService.previewImage
@@ -28,9 +28,9 @@ export class PreviewComponent {
 
     console.log(this._photoService.idForm)
 
-    if(this._photoService.idForm !== undefined){
+    if(this._photoService.idForm !== undefined && this.preview instanceof File){
 
-      this._photoService.captureImage(this._photoService.previewImage, this._photoService.idForm).subscribe(  () => {
+      this._photoService.captureImage(this.preview, this._photoService.idForm).subscribe(  () => {
 
          this._router.navigate(['/previewForm'])
       });

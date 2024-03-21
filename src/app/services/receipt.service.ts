@@ -22,4 +22,9 @@ export class ReceiptService {
       return this._httpClient.get<Receipt>(this._url+`receipt/${id}`)
   }
 
+  getImageByID(id: number){
+    return this._httpClient.get(this._url+`receipt/photo/${id}`, {responseType: 'blob'});
+  }
+
+
 }

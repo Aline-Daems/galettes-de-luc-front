@@ -6,14 +6,18 @@ import {url} from "../url";
   providedIn: 'root'
 })
 export class PhotoService {
-  previewImage: string = "";
+  previewImage: File | undefined;
 
   idForm?:number;
   constructor(private readonly  _httpClient:HttpClient, @Inject(url) private _url:string) { }
 
 
-  captureImage(file:String, idForm:number){
+  captureImage(file:File, idForm:number){
 
-    return this._httpClient.put<any>(this._url+`receipt/file/${idForm}`, file)
+    const formData = new FormData();
+
+    formData.append('file', file);
+
+    return this._httpClient.put(this._url+`receipt/file/${idForm}`, formData, { responseType: 'blob' })
   }
 }

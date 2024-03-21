@@ -28,7 +28,9 @@ td{
 
 }
 
-
+span{
+  color:black;
+}
 section{
   font-family: "Agency FB";
   justify-content: center;
@@ -38,12 +40,16 @@ section{
 }
 
 .form-preview{
-  margin-left:2rem;
+  margin-left:1rem;
+  line-height: 2;
 
 }
 .form-preview p {
-  margin-bottom: 2rem;
   font-weight: bold;
+}
+
+.form-preview span {
+  margin-bottom: 2rem;
 }
 .buttons{
   display: flex;
@@ -54,4 +60,6 @@ section{
 }
 
 
-
+img{
+  width:22rem;
+}

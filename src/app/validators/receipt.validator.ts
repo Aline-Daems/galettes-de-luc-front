@@ -10,7 +10,6 @@ export function ReceiptValidator(): ValidatorFn {
     const frozenValue = control.get('frozen')?.value;
     const frozenTempInput = control.get('frozenTemp');
     const frozenDateInput = control.get('frozenDate');
-    const thawedDateInput = control.get('thawedDate');
     const frozenExpirationDateInput = control.get('frozenExpirationDate');
     const frozenDaysInput = control.get('frozenDays');
 
@@ -31,12 +30,7 @@ export function ReceiptValidator(): ValidatorFn {
       }
     }
 
-    if (frozenValue == true && thawedDateInput?.value == "") {
 
-      return {
-        requiredThawedDate: "Can't be null"
-      }
-    }
     if (frozenValue == true && frozenExpirationDateInput?.value == undefined && frozenExpirationDateInput?.dirty) {
 
       return {
