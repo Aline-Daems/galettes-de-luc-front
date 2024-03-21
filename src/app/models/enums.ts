@@ -1,10 +1,10 @@
-export enum Roles {
+export enum Role {
 
   admin= "admin",
   employé = "employee"
 }
 
 
-export const RolesMapping:Record<Roles, string> = {
-[Roles.admin]: "Admin", [Roles.employé]: "employé"
+export const RolesMapping:Record<Role, string> = {
+ [Role.employé]: "employee", [Role.admin]: "admin",
 }

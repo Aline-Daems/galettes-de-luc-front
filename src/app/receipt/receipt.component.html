@@ -29,7 +29,7 @@
 
 
     <div class="form">
-      <label>Numéro fournisseur</label>
+      <label>Numéro lot fournisseur</label>
       <input type="text" formControlName="providerNumber" [ngClass]="{'invalid': receiptForm.get('providerNumber')?.invalid}">
     </div>
     <div class="form">
@@ -45,10 +45,7 @@
     <div class="form">
       <label>D.L.U</label>
       <input type="date" formControlName="expirationDate" [ngClass]="{'invalid': receiptForm.get('expirationDate')?.dirty && receiptForm.hasError('notInThePast')}">
-<!--      <span-->
-<!--        *ngIf='this.receiptForm.get("expirationDate")?.dirty &&   this.receiptForm.get("expirationDate")?.touched && receiptForm.get("expirationDate")?.hasError("pasDanslePasse")'>-->
-<!--        {{ errorDate }}-->
-<!--      </span>-->
+
     </div>
 
     <div *ngIf="fresh">
@@ -72,14 +69,8 @@
       <label>Date de congélation</label>
       <input type="date" formControlName="frozenDate" [ngClass]="{'invalid': receiptForm.hasError('requiredDate')}">
 
-      <label>Date de décongélation</label>
-      <input type="date" formControlName="thawedDate"  [ngClass]="{'invalid': receiptForm.hasError('requiredThawedDate')}">
-
       <label>DLC</label>
       <input type="date" formControlName="frozenExpirationDate" [ngClass]="{'invalid': receiptForm.hasError('requiredExpiration')}">
-
-      <label>Nombre de jour</label>
-      <input type="number" formControlName="frozenDays"  [ngClass]="{'invalid': receiptForm.hasError(' requiredDays')}">
 
     </div>
 
@@ -132,6 +123,8 @@
 
 
     <input type="submit" value="Créer">
+
+
   </form>
 
 </section>

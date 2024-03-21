@@ -34,7 +34,7 @@ export class ReceiptComponent implements OnInit {
   constructor(private readonly _receiptService: ReceiptService, private readonly _formBuilder: FormBuilder, private _router: Router, private _providerService: ProviderService, private _photoService: PhotoService, private _materialService: MaterialService, private _activateRoute: ActivatedRoute) {
 
     this.receiptForm = this._formBuilder.group({
-      dateReceipt: this._formBuilder.control((new Date()).toISOString().substring(0, 10)),
+      receiptDate: this._formBuilder.control((new Date()).toISOString().substring(0, 10)),
       email: this._formBuilder.control(this.getEmail()),
       materialId: this._formBuilder.control('', Validators.required),
       providerId: this._formBuilder.control('', Validators.required),

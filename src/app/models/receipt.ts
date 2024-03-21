@@ -1,6 +1,10 @@
+import {Provider} from "./provider";
+import {Material} from "./material";
+
 export interface receiptForm {
 
-      dateReceipt:Date;
+      receiptDate:Date;
+      email:string;
       quantity:number;
       providerNumber:string;
       expirationDate:Date;
@@ -26,8 +30,9 @@ export interface receiptForm {
 
 export interface  Receipt {
   id:number
-  dateReceipt:Date;
+  receiptDate:Date;
   quantity:number;
+  email:string;
   providerNumber:string;
   expirationDate:Date;
   temperature: number;
@@ -47,4 +52,6 @@ export interface  Receipt {
   providerId:number;
   materialId:number;
   imageData:Uint8Array;
+  provider: Provider;
+  material: Material;
 }

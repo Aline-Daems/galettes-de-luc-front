@@ -1,6 +1,59 @@
 <section>
-  <p> {{receipt.quantity}}</p>
 
+  <div class="form-preview">
+    <h2>Prévisualisation du formulaire : </h2>
+    <p>Date de réception:</p>
+    <span>{{receipt.receiptDate}}</span>
+    <p>Email du réceptionniste:</p>
+    <span> {{receipt.email}}</span>
+    <p>Matière première:</p>
+    <span>{{receipt.material.name}}</span>
+    <p>Fournisseur:</p>
+    <span>{{receipt.provider.name}}</span>
+    <p>Quantité:</p>
+    <span> {{receipt.quantity}}</span>
+    <p>Numéro lot fournisseur:</p>
+    <span>{{receipt.providerNumber}}</span>
+    <p>D.L.U</p>
+    <span>{{receipt.expirationDate}}</span>
+    <span>{{receipt.frozen}}</span>
+    <div *ngIf="receipt.frozen">
+      <p>{{receipt.frozenTemp}}</p>
+    </div>
+
+    <img [src]="getImageDataUrl()" alt="photo">
+  </div>
+  <table class="box-grey">
+    <tr>
+      <td rowspan="4">Lot présent dans la production</td>
+      <td>Lot de la veille</td>
+      <td></td> <!-- Cellule vide -->
+    </tr>
+    <tr>
+      <td>+Nouveau Lot n°1</td>
+      <td></td> <!-- Cellule vide -->
+    </tr>
+    <tr>
+      <td>+Nouveau Lot n°2</td>
+      <td></td> <!-- Cellule vide -->
+    </tr>
+    <tr>
+      <td>+Nouveau Lot n°3</td>
+      <td></td> <!-- Cellule vide -->
+    </tr>
+    <tr>
+      <td>Date de décongélation:</td>
+      <td></td> <!-- Cellule vide -->
+      <td></td> <!-- Cellule vide -->
+    </tr>
+    <tr>
+      <td>Date d'incorporation:</td>
+      <td></td> <!-- Cellule vide -->
+      <td></td> <!-- Cellule vide -->
+    </tr>
+  </table>
+<div class="buttons">
   <button>Envoyer par email</button>
   <button>Télécharger en PDF</button>
+</div>
 </section>

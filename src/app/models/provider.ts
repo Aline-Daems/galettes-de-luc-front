@@ -7,3 +7,7 @@ export interface providerForm{
 }
 
 
+export interface Provider {
+
+  name:string;
+}

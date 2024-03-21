@@ -5,3 +5,7 @@ export interface materialForm {
   bio:boolean;
   fresh:boolean;
 }
+
+export interface Material{
+  name:string;
+}
