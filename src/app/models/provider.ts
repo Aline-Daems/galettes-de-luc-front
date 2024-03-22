@@ -8,6 +8,6 @@ export interface providerForm{
 
 
 export interface Provider {
-
+  id:number;
   name:string;
 }

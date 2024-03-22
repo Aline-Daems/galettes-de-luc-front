@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {url} from "../url";
 import {Receipt, receiptForm} from "../models/receipt";
 
@@ -25,15 +25,11 @@ export class ReceiptService {
   getImageByID(id: number){
     return this._httpClient.get(this._url+`receipt/photo/${id}`, {responseType: 'blob'});
   }
-  sendMail(receiptForm:receiptForm, templateName:string, providerId:number, materialId:number){
+  sendMail(receiptForm:receiptForm, providerId:number, materialId:number){
 
-    const formData  = {
-      receiptForm:receiptForm,
-      templateName:templateName,
-      providerId:providerId,
-      materialId:materialId
-    }
-    return this._httpClient.post<String>(this._url+'mail/sendEmail', formData)
+    let params = new HttpParams().set("providerId", providerId).set("materialId", materialId)
+
+    return this._httpClient.post<String>(this._url+'mail/sendEmailMessage', receiptForm, {params})
   }
 
 }

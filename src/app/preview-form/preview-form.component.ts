@@ -61,10 +61,10 @@ export class PreviewFormComponent implements OnInit{
 
 
 
-  sendMail(receiptForm:receiptForm, templateName:string, providerId:number, materialId:number){
+  sendMail(receipt:Receipt, providerId:number, materialId:number){
 
-    this._receiptService.sendMail(receiptForm, templateName, providerId, materialId).subscribe(()=> {
-      console.log(templateName)
+    this._receiptService.sendMail(receipt, providerId, materialId).subscribe(()=> {
+
       this._router.navigate(["/validations"])
     })
 

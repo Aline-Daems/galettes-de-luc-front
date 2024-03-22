@@ -8,4 +8,5 @@ export interface materialForm {
 
 export interface Material{
   name:string;
+  id:number;
 }
