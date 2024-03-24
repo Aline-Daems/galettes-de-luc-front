@@ -20,44 +20,86 @@
 
     <div *ngIf="receipt.frozen">
       <span>Oui</span>
-      <p>{{receipt.frozenTemp}}</p>
+      <span>{{receipt.frozenTemp}}</span>
+      <span>{{receipt.frozenDate}}</span>
+      <span>{{receipt.frozenExpirationDate}}</span>
     </div>
 
     <span *ngIf="!receipt.frozen">Non</span>
 
+    <p>Etiquetage non conforme ? </p>
+    <div *ngIf="receipt.labelling">
+      <span>Oui</span>
+      <span>{{receipt.labelComment}}</span>
+    </div>
+
+    <span *ngIf="!receipt.labelling">
+      Non
+    </span>
+    <p>Emballage non conforme ? </p>
+    <div *ngIf="receipt.packaging">
+      <span>Oui</span>
+      <span>{{receipt.packagingComment}}</span>
+    </div>
+
+    <span *ngIf="!receipt.packaging">Non</span>
+    <p>Hygiène non conforme ? </p>
+    <div *ngIf="receipt.hygiene">
+      <span>Oui</span>
+      <span>{{receipt.hygieneComment}}</span>
+    </div>
+
+
+  </div>
+
+  <div class="image-box">
     <img [src]="this.image" alt="photo">
   </div>
+
+
   <table class="box-grey">
+    <!-- Ligne 1 -->
     <tr>
-      <td rowspan="4">Lot présent dans la production</td>
+      <td></td>
       <td>Lot de la veille</td>
-      <td></td> <!-- Cellule vide -->
     </tr>
     <tr>
-      <td>+Nouveau Lot n°1</td>
-      <td></td> <!-- Cellule vide -->
+      <td></td>
+      <td>
+        Nouveau lot n°1
+      </td>
     </tr>
     <tr>
-      <td>+Nouveau Lot n°2</td>
-      <td></td> <!-- Cellule vide -->
+      <td>
+        Lot présent dans la production
+      </td>
+      <td>Nouveau lot n°2</td>
     </tr>
     <tr>
-      <td>+Nouveau Lot n°3</td>
-      <td></td> <!-- Cellule vide -->
+      <td></td>
+      <td> Nouveau lot n°3</td>
+
     </tr>
-    <tr>
-      <td>Date de décongélation:</td>
-      <td></td> <!-- Cellule vide -->
-      <td></td> <!-- Cellule vide -->
-    </tr>
+
     <tr>
       <td>Date d'incorporation:</td>
-      <td></td> <!-- Cellule vide -->
-      <td></td> <!-- Cellule vide -->
     </tr>
+
+    <tr>
+      <td> Date de décongélation:</td>
+
+    </tr>
+
+    <tr>
+      <td> Signature:</td>
+    </tr>
+
+
   </table>
-<div class="buttons">
-  <button (click)="sendMail(receipt, receipt.provider.id, receipt.material.id)">Envoyer par email</button>
-  <button>Télécharger en PDF</button>
-</div>
+
+
+  <div class="buttons">
+    <button (click)="sendMail(receipt, receipt.provider.id, receipt.material.id)">Envoyer par email</button>
+    <button>Télécharger en PDF</button>
+  </div>
 </section>

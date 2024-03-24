@@ -22,10 +22,7 @@ table{
   border: 1px solid black;
 }
 td{
-  padding:1rem;
   width:15rem;
-
-
 }
 
 span{
@@ -62,4 +59,37 @@ section{
 
 img{
   width:22rem;
+}
+
+.image-box{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+@media only screen and (min-width: 768px) {
+
+  .form-preview{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+    border: 1px solid grey;
+    padding:2rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.31);
+    margin-bottom: 2rem;
+    width:25rem;
+  }
+  .image-box{
+    margin-bottom:2rem;
+  }
+  .box-grey{
+
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom:2rem;
+    width:25%;
+  }
+
 }
