@@ -34,7 +34,7 @@
     </div>
     <div class="form">
       <label>Quantité (en KG)</label>
-      <input type="number" formControlName="quantity">
+      <input type="number" formControlName="quantity" [ngClass]="{'invalid': receiptForm.get('quantity')?.invalid}">
 
       <span
         *ngIf='this.receiptForm.get("quantity")?.dirty && this.receiptForm.get("quantity")?.touched && this.receiptForm  && this.receiptForm.get("quantity")?.errors'>
@@ -44,7 +44,7 @@
 
     <div class="form">
       <label>D.L.U</label>
-      <input type="date" formControlName="expirationDate" [ngClass]="{'invalid': receiptForm.get('expirationDate')?.dirty && receiptForm.hasError('notInThePast')}">
+      <input type="date" formControlName="expirationDate" [ngClass]="{'invalid': receiptForm.get('expirationDate')?.dirty && receiptForm.hasError('notInThePast') || receiptForm.get('expirationDate')?.invalid}">
 
     </div>
 
@@ -70,7 +70,7 @@
       <input type="date" formControlName="frozenDate" [ngClass]="{'invalid': receiptForm.hasError('requiredDate')}">
 
       <label>DLC</label>
-      <input type="date" formControlName="frozenExpirationDate" [ngClass]="{'invalid': receiptForm.hasError('requiredExpiration')}">
+      <input type="date" formControlName="frozenExpirationDate" [ngClass]="{'invalid': receiptForm.hasError('requiredExpiration') || receiptForm.get('frozenExpirationDate')?.invalid}">
 
     </div>
 
@@ -122,7 +122,7 @@
     </div>
 
 
-    <input type="submit" value="Créer">
+    <input type="submit" value="Créer" [disabled]="!receiptForm.valid">
 
 
   </form>

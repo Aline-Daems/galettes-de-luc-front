@@ -12,10 +12,17 @@ import {ReceiptService} from "../services/receipt.service";
 export class PreviewComponent {
 
 
-  preview:File | undefined;
+  preview: File| undefined;
 
-  constructor(private _photoService:PhotoService, private _router:Router, private  receiptService:ReceiptService) {
-    this.preview =  this._photoService.previewImage
+  previewUrl : string="";
+
+
+  constructor(private _photoService:PhotoService, private _router:Router) {
+    this.preview =  this._photoService.previewImage;
+
+    this.previewUrl = this._photoService.previewImageUrl;
+
+
   }
 
 
@@ -24,13 +31,11 @@ export class PreviewComponent {
     this._router.navigate(['/photo']);
   }
   proceed(){
-    console.log(this._photoService.previewImage);
 
-    console.log(this._photoService.idForm)
 
-    if(this._photoService.idForm !== undefined && this.preview instanceof File){
+    if(this._photoService.idForm !== undefined  && this._photoService.previewImage){
 
-      this._photoService.captureImage(this.preview, this._photoService.idForm).subscribe(  () => {
+      this._photoService.captureImage(this._photoService.previewImage, this._photoService.idForm).subscribe(  () => {
 
          this._router.navigate(['/previewForm'])
       });

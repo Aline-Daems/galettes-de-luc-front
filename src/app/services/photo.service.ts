@@ -8,6 +8,8 @@ import {url} from "../url";
 export class PhotoService {
   previewImage: File | undefined;
 
+  previewImageUrl:string="";
+
   idForm?:number;
   constructor(private readonly  _httpClient:HttpClient, @Inject(url) private _url:string) { }
 

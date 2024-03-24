@@ -51,8 +51,15 @@ input[type="submit"]:active{
   border: 1px solid #235b3d;
 
 }
+input[disabled]{
+  background: rgba(99, 105, 102, 0.55);
 
+}
+input[disabled]:active{
+  background: rgba(99, 105, 102, 0.55);
+  color:#fefefe;
 
+}
 h2{
   color: #424242;
   margin:auto;

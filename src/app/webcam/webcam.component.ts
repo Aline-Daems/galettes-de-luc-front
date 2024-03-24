@@ -28,7 +28,7 @@ export class WebcamComponent {
 
 
  snapshot(event: WebcamImage){
-    console.log(event)
+    this._photoService.previewImageUrl = event.imageAsDataUrl;
 
  const blob = this.dataURItoBlob(event.imageAsDataUrl);
 

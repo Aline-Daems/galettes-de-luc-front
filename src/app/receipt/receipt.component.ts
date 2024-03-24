@@ -24,8 +24,6 @@ export class ReceiptComponent implements OnInit {
   materiaArray!: materialForm[];
   fresh: boolean = false;
 
-  errorDate? = " La date d'expiration doit être supérieur à la date du jour"
-  errorFrozen = "Si le produit est congelé, merci de rentrer toutes les informations nécessaires"
   errorQuantity = "La quantité doit être supérieur à 0"
   selectedMaterial: any | null = null;
 
@@ -35,7 +33,7 @@ export class ReceiptComponent implements OnInit {
 
     this.receiptForm = this._formBuilder.group({
       receiptDate: this._formBuilder.control((new Date()).toISOString().substring(0, 10)),
-      email: this._formBuilder.control(this.getEmail()),
+      email: this._formBuilder.control(this.getEmail(), [Validators.required, Validators.email] ),
       materialId: this._formBuilder.control('', Validators.required),
       providerId: this._formBuilder.control('', Validators.required),
       providerNumber: this._formBuilder.control('', Validators.required),
@@ -45,9 +43,7 @@ export class ReceiptComponent implements OnInit {
       frozen: this._formBuilder.control(false),
       frozenTemp: this._formBuilder.control(0),
       frozenDate: this._formBuilder.control(new Date().toISOString().substring(0, 10)),
-      thawedDate: this._formBuilder.control('', DateValidator()),
-      frozenExpirationDate: this._formBuilder.control('',DateValidator()),
-      frozenDays: this._formBuilder.control(''),
+      frozenExpirationDate: this._formBuilder.control('', DateValidator()),
       labelling: this._formBuilder.control(false),
       labelComment: this._formBuilder.control(''),
       packaging: this._formBuilder.control(false),
@@ -66,7 +62,6 @@ export class ReceiptComponent implements OnInit {
       error: (err) => console.log(err.err()),
       complete: () => console.log("Chargement des fournisseurs effectués")
 
-
     })
 
 
@@ -77,6 +72,10 @@ export class ReceiptComponent implements OnInit {
         complete: () => console.log("chargement ok")
       }
     )
+
+    this.receiptForm.get("frozen")?.valueChanges.subscribe(() => {
+      this.onFrozenChange();
+    })
   }
 
 
@@ -87,10 +86,7 @@ export class ReceiptComponent implements OnInit {
   create() {
     if (this.receiptForm.valid) {
 
-
       this._receiptService.create(this.receiptForm.value).subscribe(id => {
-
-
         this._photoService.idForm = id
         this._router.navigate(['/photo'])
       });
@@ -108,6 +104,15 @@ export class ReceiptComponent implements OnInit {
       this.fresh = false;
     }
 
+  }
+
+  onFrozenChange(){
+    if(!this.receiptForm.get('frozen')?.value){
+      console.log(" frozen is "+this.receiptForm.get('frozen'));
+      this.receiptForm.get("frozenTemp")?.setValue("");
+      this.receiptForm.get("frozenExpirationDate")?.setValue(undefined);
+      this.receiptForm.get("frozenDate")?.setValue(undefined);
+    }
   }
 
 
