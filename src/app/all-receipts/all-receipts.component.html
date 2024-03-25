@@ -1,0 +1,35 @@
+<div>
+  <h2>Les formulaires de receptions</h2>
+
+  <a routerLink="/receipts/new"><fa-icon [icon]="faPlus" class="plus"></fa-icon></a>
+  <table>
+
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Fournisseur</th>
+      <th>Matière première</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let a of array">
+      <td class="name">
+
+        <span>
+        <button (click)="desactive(a.id)"><fa-icon [icon]="faXmark"></fa-icon></button>
+<!--        <button><fa-icon [icon]="faPen" (click)="gotToUpdate(a.id)"></fa-icon></button>-->
+         </span>
+        <a routerLink="/getForm/{{a.id}}">{{ a.receiptDate }}</a>
+      </td>
+      <td>
+        {{a.provider.name}}
+      </td>
+      <td>
+        {{a.material.name}}
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>

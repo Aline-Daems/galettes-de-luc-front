@@ -1,0 +1,117 @@
+<section>
+
+  <div class="form-preview">
+    <h2>Prévisualisation du formulaire : </h2>
+    <p>Date de réception:</p>
+    <span>{{receipt.receiptDate}}</span>
+    <p>Email du réceptionniste:</p>
+    <span> {{receipt.email}}</span>
+    <p>Matière première:</p>
+    <span>{{receipt.material.name}}</span>
+    <p>Fournisseur:</p>
+    <span>{{receipt.provider.name}}</span>
+    <p>Quantité:</p>
+    <span> {{receipt.quantity}}</span>
+    <p>Numéro lot fournisseur:</p>
+    <span>{{receipt.providerNumber}}</span>
+    <p>D.L.U:</p>
+    <span>{{receipt.expirationDate}}</span>
+    <p>Congelé ? </p>
+
+    <div *ngIf="receipt.frozen">
+      <span>Oui</span>
+      <span>{{receipt.frozenTemp}}</span>
+      <span>{{receipt.frozenDate}}</span>
+      <span>{{receipt.frozenExpirationDate}}</span>
+    </div>
+
+    <span *ngIf="!receipt.frozen">Non</span>
+
+    <p>Etiquetage non conforme ? </p>
+    <div *ngIf="receipt.labelling">
+      <span>Oui</span>
+      <span>{{receipt.labelComment}}</span>
+    </div>
+
+    <span *ngIf="!receipt.labelling">
+      Non
+    </span>
+    <p>Emballage non conforme ? </p>
+    <div *ngIf="receipt.packaging">
+      <span>Oui</span>
+      <span>{{receipt.packagingComment}}</span>
+    </div>
+
+    <span *ngIf="!receipt.packaging">Non</span>
+    <p>Hygiène non conforme ? </p>
+    <div *ngIf="receipt.hygiene">
+      <span>Oui</span>
+      <span>{{receipt.hygieneComment}}</span>
+    </div>
+
+    <span *ngIf="!receipt.hygiene">Non</span>
+
+    <p>Commentaires:</p>
+    <span>{{receipt.comment}}</span>
+    <div *ngIf="receipt.material.bio == true" class="green">
+      <p>
+        reception bio : Imprimer 2 fois et en mettre une sur le bureau de Luc
+      </p>
+
+      <p>Luc: Encoder dans DOC-99-1 Stock bio puis dans farde 1-15</p>
+    </div>
+
+  </div>
+
+  <div class="image-box">
+    <img [src]="this.image" alt="photo">
+  </div>
+
+
+  <table class="box-grey">
+    <!-- Ligne 1 -->
+    <tr>
+      <td></td>
+      <td>Lot de la veille</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        Nouveau lot n°1
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Lot présent dans la production
+      </td>
+      <td>Nouveau lot n°2</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> Nouveau lot n°3</td>
+
+    </tr>
+
+    <tr>
+      <td>Date d'incorporation:</td>
+    </tr>
+
+    <tr>
+      <td> Date de décongélation:</td>
+
+    </tr>
+
+    <tr>
+      <td> Signature:</td>
+    </tr>
+
+
+  </table>
+
+
+  <div class="buttons">
+    <button (click)="sendMail(receipt, receipt.provider.id, receipt.material.id)">Envoyer par email</button>
+    <button>Télécharger en PDF</button>
+  </div>
+</section>
+

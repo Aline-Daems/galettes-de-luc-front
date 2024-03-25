@@ -1,0 +1,103 @@
+button{
+  background: var(--primaryGreen);
+  color:#fefefe;
+  padding: 1.5rem;
+  border:none;
+  margin-bottom: 2rem;
+  max-width: 12rem;
+  display:flex;
+  align-items: center;
+}
+
+.box-grey {
+
+  background: #a19f9f;
+  color:black;
+  padding: 0.5rem;
+  margin-bottom:2rem ;
+  margin-top:2rem;
+}
+
+table{
+  border: 1px solid black;
+}
+td{
+  width:15rem;
+}
+
+span{
+  color:black;
+}
+section{
+  font-family: "Agency FB";
+  justify-content: center;
+  align-items: flex-start;
+
+
+}
+
+.form-preview{
+  margin-left:1rem;
+  line-height: 2;
+
+}
+.form-preview p {
+  font-weight: bold;
+}
+
+.form-preview span {
+  margin-bottom: 2rem;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin:auto;
+}
+
+
+img{
+  width:22rem;
+}
+
+.image-box{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.green{
+  background: chartreuse;
+}
+
+.green > * {
+  text-transform: uppercase;
+}
+@media only screen and (min-width: 768px) {
+
+  .form-preview{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    margin:auto;
+    border: 1px solid grey;
+    padding:2rem;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.31);
+    margin-bottom: 2rem;
+    width:25rem;
+  }
+  .image-box{
+    margin-bottom:2rem;
+  }
+  .box-grey{
+
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom:2rem;
+    width:25%;
+  }
+
+}
