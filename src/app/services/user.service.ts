@@ -25,6 +25,7 @@ export class UserService {
     return this._httpClient.post<AuthDTO>(this._url+'user/login', loginform).pipe(tap (data=> {
       localStorage.setItem("token", data.token);
       localStorage.setItem("email", data.email);
+      localStorage.setItem("roles", data.roles)
       localStorage.setItem("firstname", data.firstname);
 
       console.log('user:'+this.userConnected);
@@ -52,6 +53,14 @@ export class UserService {
     this.userConnected.next(status);
   }
 
+
+  getUserRole():string | null {
+
+    const token = localStorage.getItem('roles');
+
+
+    return  token;
+  }
 
 
 }

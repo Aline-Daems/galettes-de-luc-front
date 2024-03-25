@@ -17,4 +17,5 @@ export interface AuthDTO {
   email:string;
   firstname:string;
   token:string;
+  roles:string;
 }

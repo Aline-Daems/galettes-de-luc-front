@@ -15,22 +15,24 @@ import {PreviewFormComponent} from "./preview-form/preview-form.component";
 import {AllReceiptsComponent} from "./all-receipts/all-receipts.component";
 import {GetFormComponent} from "./get-form/get-form.component";
 import {authGuard} from "./guards/auth.guard";
+import {rolesGuard} from "./guards/roles.guard";
 
 const routes: Routes = [
-  {path:'create', component: CreateComponent,canActivate:[authGuard]},
-  {path:'home', component: HomeComponent},
+  {path:'create', component: CreateComponent,canActivate:[authGuard, rolesGuard]},
+  {path:'home', component: HomeComponent, canActivate: [authGuard]},
   {path:'login', component: LoginComponent},
-  {path:'validation', component:ValidationComponent, canActivate:[authGuard]},
-  {path:'providers', component:ProviderComponent},
-  {path:'providers/new/:id', component:NewProviderComponent, canActivate:[authGuard]},
-  {path:'receipts/new', component:ReceiptComponent, canActivate:[authGuard]},
-  {path:'receipts/all', component:AllReceiptsComponent},
-  {path:'photo', component:WebcamComponent, canActivate:[authGuard]},
-  {path:'preview', component:PreviewComponent, canActivate:[authGuard]},
-  {path:'material/new', component:NewMaterialComponent, canActivate:[authGuard]},
-  {path:'material/new/:id', component:NewMaterialComponent, canActivate:[authGuard]},
-  {path:'materials', component:MaterialsComponent},
-  {path:'getForm/:id', component:GetFormComponent},
+  {path:'validation', component:ValidationComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'providers', component:ProviderComponent, canActivate: [authGuard]},
+  {path:'providers/new/:id', component:NewProviderComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'receipts/new', component:ReceiptComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'receipts/all', component:AllReceiptsComponent, canActivate: [authGuard]},
+  {path:'photo', component:WebcamComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'preview', component:PreviewComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'material/new', component:NewMaterialComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'material/new/:id', component:NewMaterialComponent, canActivate:[authGuard, rolesGuard]},
+  {path:'materials', component:MaterialsComponent, canActivate: [authGuard]},
+  {path:'previewForm', component:PreviewFormComponent, canActivate: [authGuard]},
+  {path:'getForm/:id', component:GetFormComponent, canActivate: [authGuard]},
   {path:'', component: LoginComponent}
 
 ];

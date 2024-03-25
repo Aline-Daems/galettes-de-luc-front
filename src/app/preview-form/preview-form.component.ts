@@ -49,7 +49,7 @@ export class PreviewFormComponent implements OnInit{
       next: response => {
         const blob = new Blob([response], { type: 'image/jpeg' });
         this.image = URL.createObjectURL(blob);
-        console.log("tout va bien !!")
+
 
       },
       error: err => console.log(err)

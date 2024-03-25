@@ -108,7 +108,7 @@ export class ReceiptComponent implements OnInit {
 
   onFrozenChange(){
     if(!this.receiptForm.get('frozen')?.value){
-      console.log(" frozen is "+this.receiptForm.get('frozen'));
+
       this.receiptForm.get("frozenTemp")?.setValue("");
       this.receiptForm.get("frozenExpirationDate")?.setValue(undefined);
       this.receiptForm.get("frozenDate")?.setValue(undefined);
