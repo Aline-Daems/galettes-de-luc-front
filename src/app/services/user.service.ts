@@ -27,7 +27,7 @@ export class UserService {
       localStorage.setItem("email", data.email);
       localStorage.setItem("firstname", data.firstname);
 
-      console.log(data);
+      console.log('user:'+this.userConnected);
 
       this.userConnected.next(data.email)
     }))

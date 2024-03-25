@@ -23,6 +23,7 @@ export interface receiptForm {
       hygieneComment:string;
       comment:string;
       providerId:number;
+      materialId:number;
 
 
 }

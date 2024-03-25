@@ -49,6 +49,17 @@
       <span>{{receipt.hygieneComment}}</span>
     </div>
 
+    <span *ngIf="!receipt.hygiene">Non</span>
+
+    <p>Commentaires:</p>
+    <span>{{receipt.comment}}</span>
+    <div *ngIf="receipt.material.bio == true" class="green">
+      <p>
+        reception bio : Imprimer 2 fois et en mettre une sur le bureau de Luc
+      </p>
+
+      <p>Luc: Encoder dans DOC-99-1 Stock bio puis dans farde 1-15</p>
+    </div>
 
   </div>
 

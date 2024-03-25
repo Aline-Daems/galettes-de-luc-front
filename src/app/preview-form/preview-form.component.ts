@@ -65,7 +65,7 @@ export class PreviewFormComponent implements OnInit{
 
     this._receiptService.sendMail(receipt, providerId, materialId).subscribe(()=> {
 
-      this._router.navigate(["/validations"])
+      this._router.navigate(["/validation"])
     })
 
 

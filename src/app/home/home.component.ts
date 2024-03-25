@@ -77,6 +77,11 @@ export class HomeComponent implements OnInit{
       this._router.navigate(['materials'])
     }
 
+
+    receipts(){
+
+      this._router.navigate(['receipts/all'])
+    }
     protected readonly faTruckRampBox = faTruckRampBox;
     protected readonly faTruckFront = faTruckFront;
     protected readonly faEgg = faEgg;

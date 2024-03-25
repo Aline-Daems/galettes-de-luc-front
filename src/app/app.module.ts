@@ -25,6 +25,8 @@ import { PreviewComponent } from './preview/preview.component';
 import { NewMaterialComponent } from './new-material/new-material.component';
 import { MaterialsComponent } from './materials/materials.component';
 import { PreviewFormComponent } from './preview-form/preview-form.component';
+import { AllReceiptsComponent } from './all-receipts/all-receipts.component';
+import { GetFormComponent } from './get-form/get-form.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { PreviewFormComponent } from './preview-form/preview-form.component';
     PreviewComponent,
     NewMaterialComponent,
     MaterialsComponent,
-    PreviewFormComponent
+    PreviewFormComponent,
+    AllReceiptsComponent,
+    GetFormComponent
 
 
   ],

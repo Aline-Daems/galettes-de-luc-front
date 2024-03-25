@@ -32,4 +32,16 @@ export class ReceiptService {
     return this._httpClient.post<String>(this._url+'mail/sendEmailMessage', receiptForm, {params})
   }
 
+  getAll(){
+
+    return this._httpClient.get<Receipt[]>(this._url+'receipt/all')
+  }
+
+
+  desactive(id:number){
+
+    return this._httpClient.put(this._url+`receipt/delete/${id}`, null)
+  }
+
+
 }
