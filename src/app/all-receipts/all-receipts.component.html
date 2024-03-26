@@ -1,7 +1,8 @@
 <div>
   <h2>Les formulaires de receptions</h2>
 
-  <a routerLink="/receipts/new"><fa-icon [icon]="faPlus" class="plus"></fa-icon></a>
+  <a routerLink="/receipts/new">
+    <fa-icon [icon]="faPlus" class="plus"></fa-icon></a>
   <table>
 
     <thead>
@@ -18,7 +19,6 @@
 
         <span>
         <button (click)="desactive(a.id)"><fa-icon [icon]="faXmark"></fa-icon></button>
-<!--        <button><fa-icon [icon]="faPen" (click)="gotToUpdate(a.id)"></fa-icon></button>-->
          </span>
         <a routerLink="/getForm/{{a.id}}">{{ a.receiptDate }}</a>
       </td>

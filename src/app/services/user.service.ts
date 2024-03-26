@@ -25,12 +25,13 @@ export class UserService {
     return this._httpClient.post<AuthDTO>(this._url+'user/login', loginform).pipe(tap (data=> {
       localStorage.setItem("token", data.token);
       localStorage.setItem("email", data.email);
+
       localStorage.setItem("roles", data.roles)
       localStorage.setItem("firstname", data.firstname);
 
-      console.log('user:'+this.userConnected);
-
       this.userConnected.next(data.email)
+
+
     }))
   }
 
@@ -43,23 +44,17 @@ export class UserService {
       localStorage.removeItem("token");
       localStorage.clear();
 
-
     }
   }
-
-
-  updateUserStatus(status:string |null){
-
-    this.userConnected.next(status);
-  }
-
 
   getUserRole():string | null {
 
     const token = localStorage.getItem('roles');
-
-
     return  token;
+  }
+
+  getOne(id:number){
+    return this._httpClient.get<UserForm>(this._url+`user/${id}`);
   }
 
 

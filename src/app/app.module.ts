@@ -29,6 +29,7 @@ import { AllReceiptsComponent } from './all-receipts/all-receipts.component';
 import { GetFormComponent } from './get-form/get-form.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

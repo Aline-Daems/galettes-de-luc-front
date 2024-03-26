@@ -17,12 +17,14 @@ import {GetFormComponent} from "./get-form/get-form.component";
 import {authGuard} from "./guards/auth.guard";
 import {rolesGuard} from "./guards/roles.guard";
 
+
 const routes: Routes = [
-  {path:'create', component: CreateComponent,canActivate:[authGuard, rolesGuard]},
+  {path:'create', component: CreateComponent},
   {path:'home', component: HomeComponent, canActivate: [authGuard]},
   {path:'login', component: LoginComponent},
   {path:'validation', component:ValidationComponent, canActivate:[authGuard, rolesGuard]},
   {path:'providers', component:ProviderComponent, canActivate: [authGuard]},
+  {path: 'providers/new', component:NewProviderComponent, canActivate: [authGuard]},
   {path:'providers/new/:id', component:NewProviderComponent, canActivate:[authGuard, rolesGuard]},
   {path:'receipts/new', component:ReceiptComponent, canActivate:[authGuard, rolesGuard]},
   {path:'receipts/all', component:AllReceiptsComponent, canActivate: [authGuard]},

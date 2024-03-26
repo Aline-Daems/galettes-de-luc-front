@@ -1,5 +1,5 @@
 export interface UserForm {
-
+  firstname:string;
   lastname:string;
   password:string;
   email:string;
@@ -13,7 +13,7 @@ export interface loginForm{
 }
 
 export interface AuthDTO {
-
+  id: string;
   email:string;
   firstname:string;
   token:string;

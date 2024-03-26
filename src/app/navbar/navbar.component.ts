@@ -20,15 +20,8 @@ export class NavbarComponent implements OnInit {
 
   isConnected: boolean = false;
 
+  userId:string |null = null;
 
-  protected readonly faHouse = faHouse;
-  protected readonly faUser = faUser;
-  protected readonly faRectangleList = faRectangleList;
-
-  protected readonly faUserPlus = faUserPlus;
-  protected readonly faTruckRampBox = faTruckRampBox;
-
-  protected readonly faPowerOff = faPowerOff;
 
 
   constructor(private readonly _userService: UserService) {
@@ -40,6 +33,11 @@ export class NavbarComponent implements OnInit {
         this.isConnected = status !== null;
       }
     )
+
+    this._userService.userConnected.subscribe((userId:string|null)=> {
+      console.log(userId);
+      this.userId = userId
+    });
 
   }
 
@@ -53,4 +51,10 @@ export class NavbarComponent implements OnInit {
 
 
   protected readonly faRightToBracket = faRightToBracket;
+  protected readonly faHouse = faHouse;
+  protected readonly faUser = faUser;
+  protected readonly faRectangleList = faRectangleList;
+  protected readonly faUserPlus = faUserPlus;
+  protected readonly faTruckRampBox = faTruckRampBox;
+  protected readonly faPowerOff = faPowerOff;
 }

@@ -16,12 +16,6 @@
 
 
 
-  <a href="">
-    <fa-icon [icon]="faUser"></fa-icon>
-    <p>Profil</p>
-  </a>
-
-
   <a routerLink="/login" *ngIf="isConnected" (click)="logout()">
     <fa-icon [icon]="faPowerOff"></fa-icon>
     <p>Se déconnecter</p>
