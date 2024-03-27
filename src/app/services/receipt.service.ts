@@ -27,9 +27,9 @@ export class ReceiptService {
   }
   sendMail(receiptForm:receiptForm, providerId:number, materialId:number){
 
-    let params = new HttpParams().set("providerId", providerId).set("materialId", materialId)
+    let params = new HttpParams().set("providerId", providerId.toString()).set("materialId", materialId.toString())
 
-    return this._httpClient.post<String>(this._url+'mail/sendEmailMessage', receiptForm, {params})
+    return this._httpClient.post(this._url+'mail/sendEmailMessage', receiptForm, {params , responseType:'text'})
   }
 
   getAll(){

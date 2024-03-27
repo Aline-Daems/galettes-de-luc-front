@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'validation', component:ValidationComponent, canActivate:[authGuard, rolesGuard]},
   {path:'providers', component:ProviderComponent, canActivate: [authGuard]},
-  {path: 'providers/new', component:NewProviderComponent, canActivate: [authGuard]},
+  {path:'providers/new', component:NewProviderComponent, canActivate: [authGuard]},
   {path:'providers/new/:id', component:NewProviderComponent, canActivate:[authGuard, rolesGuard]},
   {path:'receipts/new', component:ReceiptComponent, canActivate:[authGuard, rolesGuard]},
   {path:'receipts/all', component:AllReceiptsComponent, canActivate: [authGuard]},
